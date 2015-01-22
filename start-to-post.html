@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Start to Post on FarBox</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">feigao.me </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about-me.html">about me</a></li>
+                    <li class="active"><a href="/category/posts.html">posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/start-to-post.html" rel="bookmark"
+           title="Permalink to Start to Post on FarBox">Start to Post on FarBox</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-06-21T00:00:00+08:00">
+                Published: Sat 21 June 2014
+        </abbr>
+		<br />
+        <abbr class="modified" title="2014-06-25T00:00:00+08:00">
+                Updated: Wed 25 June 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/fei-gao.html">Fei Gao</a>
+        </address>
+<p>In <a href="/category/posts.html">posts</a>. </p>
+<p>tags: <a href="/tag/markdown.html">markdown</a> </p>
+</footer><!-- /.post-info -->      <h2>Before Start</h2>
+<p>As FarBox mentioned in its documentations, this is a highly open and customizable system. So the contents of following only reflect my own experience and you probably should know that my experience is only a few days 8-p</p>
+<h2>Post Files</h2>
+<p>The suffix of the filename of a post, should be one of <code>.txt .md .markdown .mk</code>.</p>
+<h3>File Path</h3>
+<p>File path by default is the <code>category</code> of the post. For example, <code>/site/it/post1.md</code> is in category <code>it</code>; and <code>/site/it/python/post2.md</code> is in both category <code>it</code> and category <code>python</code>.</p>
+<h3>File Name</h3>
+<p>Since <code>/path/filename-without-ext</code> is the defaut url of the post, you should come up with a good name and stick to it. Or, you could set the <code>url</code> metadata of posts.</p>
+<h2>Metadata</h2>
+<h3>Standard Fields</h3>
+<p>These may be needed by everyone.</p>
+<blockquote>
+<p>Title: Hello World
+Date: 1949-10-01
+Tags: tag1, tag2
+Status: public / draft</p>
+</blockquote>
+<p>The following could also be helpful. (Note that, not every templates respect <code>position</code>, and <code>url</code> are relative to <code>/post/</code>)</p>
+<blockquote>
+<p>Url: [default is the path/filename-without-ext]
+Toc: yes / no
+Position: 1024</p>
+</blockquote>
+<h3>More on Metadata</h3>
+<p>Generally, there is no bad to provide sufficient metadata when you started a post. They may be supported some day in future. Easily by processing <code>post.metadata.key</code> of post in the template, you can do a lot of exciting things. </p>
+<p>For example, in the list view (i.e. <code>/</code> or <code>/index.html</code>), every post will show its first 300 characters. (OK, not quite true, see also "Post List Preview".) Usually this words won't give an idea what the post is talking about. Many other static blogging system solve this by providing a summary or excerpt field for author to briefly describe the content of the post with a few sentences.  </p>
+<p>Actually, it takes only <a href="https://github.com/feigaochn/farbox-templates/commit/12f1634">one line modification</a> in the template to support showing the excerpt of a post in default view. If you provide the <code>Excerpt</code> field in post like these:</p>
+<blockquote>
+<p>Excerpt: A brief introduction of article.</p>
+</blockquote>
+<p>Also it would be great to support another common used key <code>category</code>. But I'm not sure if this can be done by hacking templates, since currently FarBox parses the <code>category</code> info directly from file path.</p>
+<blockquote>
+<p>Category: it</p>
+</blockquote>
+<h2>Contents</h2>
+<h3>Post List Preview</h3>
+<p>If <code>&lt;!--more--&gt;</code> is in post content, the content will be split by it and return the first part only in posts list like <code>index.html</code>. Note that, this may need supports by certain templates.</p>
+<h3>Markdown</h3>
+<p>Check <a href="markdown-tests">my another post</a> on testing markdown support.</p>
+<h3>Gist</h3>
+<p><code>gist acd3c4804ecfaba748e2</code></p>
+<p>Oops, why is it not working &gt;_&lt;</p>
+<h3>Mathjax</h3>
+<p>Inline math with single dollar <code>$n=\beta$</code>: $n=\beta$.</p>
+<p>Equation with double dollars sign <code>$$\alpha = \lim_{x \to 0} f(x)$$</code>: $$\alpha=\lim_{x\to0} f(x).$$</p>
+<p>Or fancy code with <code>mathjax</code> syntax:</p>
+<div class="highlight"><pre>\int_{x=0}^{\infty} \sin(x) d x
+</pre></div>
+
+
+<p>You can even use <code>eqnarray</code>. So good, isn't it!</p>
+<div class="highlight"><pre><span class="x">\begin</span><span class="err">{</span><span class="x">eqnarray}</span>
+<span class="x">    f(0) &amp; = &amp; 0 \\</span>
+<span class="x">    f(1) &amp; = &amp; 1 \\</span>
+<span class="x">    f(n) &amp; = &amp; f(n-1) + f(n-2) \text</span><span class="err">{</span><span class="x"> for </span><span class="p">$</span><span class="nv">n</span><span class="x"> \ge 2</span><span class="p">$}</span><span class="x"></span>
+<span class="x">\end</span><span class="err">{</span><span class="x">eqnarray}</span>
+</pre></div>
+
+
+<h2>Further Reading</h2>
+<ul>
+<li>Rules for Writing at <a href="http://help.farbox.com/read/basic-writting">help.farbox.com</a>.</li>
+<li>Post Configs at <a href="http://doc.farbox.com/read/post-configs">doc.farbox.com</a>.</li>
+</ul>
+<hr />
+<p>Last Modified at Jun 25, 2014</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/feigaochn">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

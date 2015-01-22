@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>feigao.me - latex</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">feigao.me </a></h1>
+                <nav><ul>
+                    <li><a href="/pages/about-me.html">about me</a></li>
+                    <li><a href="/category/posts.html">posts</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/install-basictex-on-mac-os.html">Install BasicTeX on Mac OS</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-07-01T00:00:00+08:00">
+                Published: Tue 01 July 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/fei-gao.html">Fei Gao</a>
+        </address>
+<p>In <a href="/category/posts.html">posts</a>. </p>
+<p>tags: <a href="/tag/latex.html">latex</a> <a href="/tag/macos.html">macos</a> </p>
+</footer><!-- /.post-info --><h2>BasicTeX</h2>
+<p>The <a href="https://www.tug.org/texlive/">TeX Live 2014</a> has just been released on June 14. The relevant <a href="http://www.tug.org/mactex/index.html">MacTeX-2014</a> is also available. But to most users, the 2.4GB of full MacTeX package seems unnecessary. So I turn to a smaller distribution named <a href="http://www.tug.org/mactex/morepackages.html">BasicTeX</a> which is only 95MB.</p>
+<blockquote>
+<p>BasicTeX is a subset of TeX Live; it is much smaller than TeX Live and yet supports most standard TeX typesetting.</p>
+</blockquote>
+<!--more-->
+
+<p>Since BasicTeX is installed in <code>/usr/local/texlive/2014basic</code>, you can keep the full version of TeX Live too. Later, you could switch the installed versions via "TeX Distribution" in Mac's "System Preferences".</p>
+<h2>Installation</h2>
+<h3>BasicTeX</h3>
+<p>You can download BasicTeX from the above web page and install it by double click. But I personally prefer the package manager <a href="http://caskroom.io">brew-cask</a> to handle my apps.</p>
+<div class="highlight"><pre>brew cask install basictex
+</pre></div>
+
+
+<h3>Packages</h3>
+<p>BasicTeX uses <code>tlmgr</code> to manage its packages the same way as TeX Live. After installation, let us update the packages first. Note that, you need administrator password to do these.</p>
+<div class="highlight"><pre>sudo tlmgr update --all
+</pre></div>
+
+
+<p>Though BasicTeX comes with commonly used packages, you may need to install others required by your documents. Here I install <code>IEEEtran</code> to write IEEE style papers and <code>stmaryrd</code> to use lots of fancy math symbols.</p>
+<div class="highlight"><pre>sudo tlmgr install IEEEtran
+sudo tlmgr install stmaryrd
+</pre></div>
+
+
+<p>If you are not a fan of command line interface, you can use the GUI tool <a href="https://code.google.com/p/mactlmgr/">TeX Live Utility</a>.</p>
+<div class="highlight"><pre>brew cask install tex-live-utility
+</pre></div>
+
+
+<h3><code>latexmk</code> Script</h3>
+<p>Some times, it is painful to manually compile a latex file with bib through the <em>correct</em> way.</p>
+<div class="highlight"><pre>pdflatex file.tex
+bibtex file.aux
+pdflatex file.tex
+pdflatex file.tex
+</pre></div>
+
+
+<p>So I usually use this nice script <a href="http://www.ctan.org/pkg/latexmk/"><code>latexmk</code></a>.</p>
+<blockquote>
+<p>latexmk completely automates the process of generating a LATEX document. Given the source files for a document, latexmk issues the appropriate sequence of commands to generate a .dvi, .ps, .pdf or hard­copy version of the document.</p>
+</blockquote>
+<div class="highlight"><pre>sudo tlmgr install latexmk
+
+# compile
+latexmk -pdf file.tex
+
+# clean up all nonessential files, except dvi, ps and pdf files.
+latexmk -c
+</pre></div>
+
+
+<h2>Errors</h2>
+<h3><code>pcrr7t</code> Font Error</h3>
+<p>A minimal working example <code>file.tex</code>:</p>
+<div class="highlight"><pre><span class="k">\documentclass</span><span class="nb">{</span>IEEEtran<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="s">$</span><span class="nv">\texttt</span><span class="nb">{desc}</span><span class="s">$</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+
+
+<p>Compile the above source file will come up with the following messages complaining the font is missing.</p>
+<div class="highlight"><pre><span class="nv">$ </span>pdflatex file.tex
+
+...
+kpathsea: Running mktexmf pcrr7t
+! I can<span class="s1">&#39;t find file `pcrr7t&#39;</span>.
+&lt;*&gt; ...:<span class="o">=</span>ljfour<span class="p">;</span> mag:<span class="o">=</span>1<span class="p">;</span> nonstopmode<span class="p">;</span> input pcrr7t
+
+Please <span class="nb">type </span>another input file name
+! Emergency stop.
+&lt;*&gt; ...:<span class="o">=</span>ljfour<span class="p">;</span> mag:<span class="o">=</span>1<span class="p">;</span> nonstopmode<span class="p">;</span> input pcrr7t
+
+Transcript written on mfput.log.
+grep: pcrr7t.log: No such file or directory
+mktextfm: <span class="sb">`</span>mf-nowin -progname<span class="o">=</span>mf <span class="se">\m</span>ode:<span class="o">=</span>ljfour<span class="p">;</span> mag:<span class="o">=</span>1<span class="p">;</span> nonstopmode<span class="p">;</span> input pcrr7t<span class="err">&#39;</span> failed to make crr7t.tfm.
+kpathsea: Appending font creation commands to missfont.log.
+
+! Font OT1/pcr/m/n/10<span class="o">=</span>pcrr7t at 10.0pt not loadable: Metric <span class="o">(</span>TFM<span class="o">)</span> file not found.
+&lt;to be <span class="nb">read </span>again&gt;
+                   relax
+l.6 <span class="nv">$\</span>texttt<span class="o">{</span>desc<span class="o">}</span>
+                  <span class="err">$</span>
+?
+...
+</pre></div>
+
+
+<p>The solution turns out to be quite simple: install <code>courier</code> font via <code>tlmgr</code>.</p>
+<div class="highlight"><pre>sudo tlmgr install courier
+</pre></div>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/feigaochn">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

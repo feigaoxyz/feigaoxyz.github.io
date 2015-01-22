@@ -14,26 +14,44 @@
         <header id="banner" class="body">
                 <h1><a href="/">feigao.me </a></h1>
                 <nav><ul>
-                    <li><a href="/pages/about-me.html">About Me</a></li>
-                    <li><a href="/pages/weather-today.html">Weather today</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="/pages/about-me.html">about me</a></li>
+                    <li><a href="/category/posts.html">posts</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/mark-title.html">mark title</a></h1>
+                    <h1 class="entry-title"><a href="/modify-mac-os-system-volume-in-cli.html">Modify Mac OS System Volume in CLI</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2015-01-30T16:20:00+08:00">
-                Published: Fri 30 January 2015
+        <abbr class="published" title="2014-08-08T00:00:00+08:00">
+                Published: Fri 08 August 2014
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/fei-gao.html">Fei Gao</a>
         </address>
-<p>In <a href="/category/misc.html">misc</a>. </p>
+<p>In <a href="/category/posts.html">posts</a>. </p>
+<p>tags: <a href="/tag/macosx.html">macosx</a> </p>
+</footer><!-- /.post-info --><p>When using in-ear headphones, the Mac OS system sound could still be very loud even if we lower the volume down to one quarter by "Option + Shift + VolUp/VolDown". So I googled a solution and write a short script to help control the volume.</p>
+<!--more-->
 
-</footer><!-- /.post-info --><p>Some contents</p>                </article>
+<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+
+<span class="c"># Thanks to http://apple.stackexchange.com/questions/63253/lowest-volume-is-still-too-loud-how-can-i-make-it-even-lower</span>
+<span class="c">#</span>
+<span class="c"># osascript -e &quot;set Volume $1&quot;</span>
+<span class="c"># $1 in range [0.0, 7.0]</span>
+
+<span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$#&quot;</span><span class="s2"> -eq 0 ]]; then</span>
+<span class="s2">    osascript -e &quot;</span>get volume settings<span class="s2">&quot;</span>
+<span class="s2">elif [[ &quot;</span><span class="nv">$#&quot;</span> -eq <span class="m">1</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> -gt <span class="m">0</span> <span class="o">&amp;&amp;</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> -lt <span class="m">100</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    osascript -e <span class="s2">&quot;set volume </span><span class="nv">$1</span><span class="s2">*7/100&quot;</span>
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s1">&#39;Usage:&#39;</span>
+    <span class="nb">echo</span> <span class="s1">&#39;  volume      Get current system volume settings&#39;</span>
+    <span class="nb">echo</span> <span class="s1">&#39;  volume v    Set output volume to v, v in range [0.0, 100.0]&#39;</span>
+<span class="k">fi</span>
+</pre></div>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -42,39 +60,124 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/post-template.html" rel="bookmark"
-                           title="Permalink to Post Template">Post Template</a></h1>
+                    <h1><a href="/rt-tuo-yan-zheng-ni-hao-tuo-yan-zheng-zai-jian.html" rel="bookmark"
+                           title="Permalink to [RT] 拖延症你好，拖延症再见">[RT] 拖延症你好，拖延症再见</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2010-01-01T00:00:00+08:00">
-                Published: Fri 01 January 2010
+        <abbr class="published" title="2014-07-19T00:00:00+08:00">
+                Published: Sat 19 July 2014
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/fei-gao.html">Fei Gao</a>
         </address>
-<p>In <a href="/category/misc.html">misc</a>. </p>
+<p>In <a href="/category/posts.html">posts</a>. </p>
+<p>tags: <a href="/tag/productive.html">productive</a> <a href="/tag/procrastination.html">procrastination</a> </p>
+</footer><!-- /.post-info -->                <p>拖延的原因: 诱惑导致的分心; 对压力的逃避; 对失败的恐惧; 对未来的错估.</p>
+<!--more-->
 
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="nl">Title</span><span class="p">:</span> <span class="n">My</span> <span class="nb">super</span> <span class="n">title</span>
-<span class="nl">Date</span><span class="p">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mo">03</span> <span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
-<span class="nl">Modified</span><span class="p">:</span> <span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mo">05</span> <span class="mi">19</span><span class="o">:</span><span class="mi">30</span>
-<span class="nl">Category</span><span class="p">:</span> <span class="n">Python</span>
-<span class="nl">Tags</span><span class="p">:</span> <span class="n">pelican</span><span class="p">,</span> <span class="n">publishing</span>
-<span class="nl">Slug</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="nb">super</span><span class="o">-</span><span class="n">post</span>
-<span class="nl">Authors</span><span class="p">:</span> <span class="n">Alexis</span> <span class="n">Metaireau</span><span class="p">,</span> <span class="n">Conan</span> <span class="n">Doyle</span>
-<span class="nl">Summary</span><span class="p">:</span> <span class="n">Short</span> <span class="n">version</span> <span class="k">for</span> <span class="n">index</span> <span class="n">and</span> <span class="n">feeds</span>
+<p><a href="http://zhuanlan.zhihu.com/happy">知乎专栏: 幸福课</a></p>
+<ul>
+<li><a href="http://zhuanlan.zhihu.com/happy/19716928">拖延症你好</a></li>
+<li><a href="http://zhuanlan.zhihu.com/happy/19721804">拖延症再见(1)</a></li>
+<li><a href="http://zhuanlan.zhihu.com/happy/19723199">拖延症再见(2)</a></li>
+<li><a href="http://zhuanlan.zhihu.com/happy/19728839">拖延症再见(3)</a></li>
+<li><a href="http://zhuanlan.zhihu.com/happy/19744718">拖延症再见(4)</a></li>
+</ul>
+                <a class="readmore" href="/rt-tuo-yan-zheng-ni-hao-tuo-yan-zheng-zai-jian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
-<span class="n">This</span> <span class="n">is</span> <span class="n">the</span> <span class="n">content</span> <span class="n">of</span> <span class="n">my</span> <span class="nb">super</span> <span class="n">blog</span> <span class="n">post</span><span class="p">.</span>
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/coursera-machine-learning-week-2.html" rel="bookmark"
+                           title="Permalink to Notes on Machine Learning at Coursera, Week 2">Notes on Machine Learning at Coursera, Week 2</a></h1>
+                </header>
 
-<span class="o">!</span><span class="p">[</span><span class="n">Alt</span> <span class="n">Text</span><span class="p">]({</span><span class="n">filename</span><span class="p">}</span><span class="o">/</span><span class="n">images ...</span></pre></div>
-                <a class="readmore" href="/post-template.html">read more</a>
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-07-11T18:21:00+08:00">
+                Published: Fri 11 July 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/fei-gao.html">Fei Gao</a>
+        </address>
+<p>In <a href="/category/posts.html">posts</a>. </p>
+<p>tags: <a href="/tag/ml.html">ml</a> <a href="/tag/coursera.html">coursera</a> <a href="/tag/octave.html">octave</a> </p>
+</footer><!-- /.post-info -->                <h2>Linear Regression with Multiple Variables (Week 2)</h2>
+<h3>Multiple Features</h3>
+<p>Notations:</p>
+<ul>
+<li>$n$: number of features</li>
+<li>$x^{(i)}$: input (features) of i-th training example</li>
+<li>$x_j^{(i)}$: value of feature j in i-th training example</li>
+</ul>
+<p>Hypothesis:</p>
+<ul>
+<li>$x, \theta$: $(n+1)$-dim vector ($x_0 = 1$)</li>
+<li>$h_\theta(x) = \theta^T x$</li>
+</ul>
+<h3>Gradient Descent for ...</h3>
+                <a class="readmore" href="/coursera-machine-learning-week-2.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/rt-anti-patterns-in-python-programming.html" rel="bookmark"
+                           title="Permalink to [RT] Anti-Patterns in Python Programming">[RT] Anti-Patterns in Python Programming</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-07-11T10:35:00+08:00">
+                Published: Fri 11 July 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/fei-gao.html">Fei Gao</a>
+        </address>
+<p>In <a href="/category/posts.html">posts</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/pocket.html">pocket</a> </p>
+</footer><!-- /.post-info -->                <blockquote>
+<p>This page is a collection of the most unfortunate but occasionally subtle issues I've seen in code written by students new to writing Python. It's written to help students get past the phase of writing ugly Python code and understand some of the most common idioms.</p>
+</blockquote>
+<p><a href="http://ift.tt/QVUZHW" title="Anti-Patterns in Python Programming">Continue with ...</a></p>
+                <a class="readmore" href="/rt-anti-patterns-in-python-programming.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/coursera-machine-learning-week-1.html" rel="bookmark"
+                           title="Permalink to Notes on Machine Learning at Coursera, Week 1">Notes on Machine Learning at Coursera, Week 1</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-07-03T16:31:00+08:00">
+                Published: Thu 03 July 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/fei-gao.html">Fei Gao</a>
+        </address>
+<p>In <a href="/category/posts.html">posts</a>. </p>
+<p>tags: <a href="/tag/ml.html">ml</a> <a href="/tag/coursera.html">coursera</a> </p>
+</footer><!-- /.post-info -->                <p>Start to take the famous <a href="https://www.coursera.org/course/ml">Machine Learning</a> course on Coursera. So these will be a series of study notes.</p>
+<p>About the Course:</p>
+<blockquote>
+<p>Machine learning is the science of getting computers to act without being explicitly programmed. In the past decade, machine learning has given us self-driving cars, practical speech recognition ...</p></blockquote>
+                <a class="readmore" href="/coursera-machine-learning-week-1.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
                 </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 1
+    Page 1 / 3
+        <a href="/index2.html">&raquo;</a>
 </p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
@@ -83,16 +186,13 @@
                         <ul>
                             <li><a href="http://getpelican.com/">Pelican</a></li>
                             <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
                         <h2>social</h2>
                         <ul>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
+                            <li><a href="https://twitter.com/feigaochn">Twitter</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
