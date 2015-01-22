@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>site title</title><link href="/" rel="alternate"></link><link href="/feeds/news.atom.xml" rel="self"></link><id>/</id><updated>2015-01-22T13:33:00+01:00</updated><entry><title>New Post with Fab</title><link href="/new-post-with-fab.html" rel="alternate"></link><updated>2015-01-22T13:33:00+01:00</updated><author><name>author name</name></author><id>tag:,2015-01-22:new-post-with-fab.html</id><summary type="html">&lt;p&gt;something happgg&lt;/p&gt;
+&lt;p&gt;something happgg&lt;/p&gt;
+&lt;p&gt;something happgg&lt;/p&gt;
+&lt;p&gt;something happgg&lt;/p&gt;
+&lt;p&gt;something happgg&lt;/p&gt;
+&lt;p&gt;something happgg&lt;/p&gt;
+&lt;p&gt;something happgg&lt;/p&gt;
+</summary><category term=""></category></entry></feed>
