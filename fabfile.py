@@ -74,6 +74,7 @@ def preview():
 
 
 def github(publish_drafts=False):
+    preview()
     try:
         if os.path.exists('output/drafts'):
             if not publish_drafts:
