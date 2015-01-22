@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>feigao.me</title><link href="http://feigaochn.github.io/" rel="alternate"></link><link href="http://feigaochn.github.io/feeds/test.atom.xml" rel="self"></link><id>http://feigaochn.github.io/</id><updated>2015-01-12T13:14:00+01:00</updated><entry><title>My first post</title><link href="http://feigaochn.github.io/my-first-post.html" rel="alternate"></link><updated>2015-01-12T13:14:00+01:00</updated><author><name>Fei Gao</name></author><id>tag:feigaochn.github.io,2015-01-12:my-first-post.html</id><summary type="html">&lt;p&gt;Hello world from Pelican!&lt;/p&gt;
+</summary></entry></feed>
