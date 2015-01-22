@@ -71,3 +71,14 @@ def publish():
         delete=True,
         extra_opts='-c',
     )
+
+
+def github(publish_drafts=False):
+    try:
+        if os.path.exists('output/drafts'):
+            if not publish_drafts:
+                local('rm -rf output/drafts')
+    except Exception:
+        pass
+    local('ghp-import -m "Generate Pelican site" -b master output')
+    local('git push origin master')
