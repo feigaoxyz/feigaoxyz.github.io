@@ -1,0 +1,1314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>feigao.me</title><link href="feigao.me/" rel="alternate"></link><link href="feigao.me/feeds/all.atom.xml" rel="self"></link><id>feigao.me/</id><updated>2014-08-08T00:00:00+08:00</updated><entry><title>Modify Mac OS System Volume in CLI</title><link href="feigao.me/posts/modify-mac-os-system-volume-in-cli.html" rel="alternate"></link><updated>2014-08-08T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-08-08:feigao.me/posts/modify-mac-os-system-volume-in-cli.html</id><summary type="html">&lt;p&gt;When using in-ear headphones, the Mac OS system sound could still be very loud even if we lower the volume down to one quarter by "Option + Shift + VolUp/VolDown". So I googled a solution and write a short script to help control the volume.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="c"&gt;# Thanks to http://apple.stackexchange.com/questions/63253/lowest-volume-is-still-too-loud-how-can-i-make-it-even-lower&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="c"&gt;# osascript -e &amp;quot;set Volume $1&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;# $1 in range [0.0, 7.0]&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt; -eq 0 ]]; then&lt;/span&gt;
+&lt;span class="s2"&gt;    osascript -e &amp;quot;&lt;/span&gt;get volume settings&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;elif [[ &amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -gt &lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -lt &lt;span class="m"&gt;100&lt;/span&gt; &lt;span class="o"&gt;]]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+    osascript -e &lt;span class="s2"&gt;&amp;quot;set volume &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;*7/100&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Usage:&amp;#39;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;  volume      Get current system volume settings&amp;#39;&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;  volume v    Set output volume to v, v in range [0.0, 100.0]&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="macos"></category></entry><entry><title>[RT] 拖延症你好，拖延症再见</title><link href="feigao.me/posts/rt-tuo-yan-zheng-ni-hao-tuo-yan-zheng-zai-jian.html" rel="alternate"></link><updated>2014-07-19T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-19:feigao.me/posts/rt-tuo-yan-zheng-ni-hao-tuo-yan-zheng-zai-jian.html</id><summary type="html">&lt;p&gt; 拖延的原因 :  诱惑导致的分心 ;  对压力的逃避 ;  对失败的恐惧 ;  对未来的错估 .&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://zhuanlan.zhihu.com/happy"&gt; 知乎专栏 :  幸福课 &lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://zhuanlan.zhihu.com/happy/19716928"&gt; 拖延症你好 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://zhuanlan.zhihu.com/happy/19721804"&gt; 拖延症再见 (1)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://zhuanlan.zhihu.com/happy/19723199"&gt; 拖延症再见 (2)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://zhuanlan.zhihu.com/happy/19728839"&gt; 拖延症再见 (3)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://zhuanlan.zhihu.com/happy/19744718"&gt; 拖延症再见 (4)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="productive"></category><category term="procrastination"></category><category term="zhihu"></category></entry><entry><title>July 12, 2014 via Instagram</title><link href="feigao.me/posts/2014-07-12-instagram.html" rel="alternate"></link><updated>2014-07-12T12:14:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-12:feigao.me/posts/2014-07-12-instagram.html</id><summary type="html">&lt;p&gt;A fun building.&lt;/p&gt;
+&lt;iframe src="http://instagram.com/p/qVlL52OUK1/embed" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Check it on &lt;a href="http://instagram.com/p/qVlL52OUK1/"&gt;my Instagram&lt;/a&gt;.&lt;/p&gt;</summary><category term="photo"></category></entry><entry><title>Notes on Machine Learning at Coursera, Week 2</title><link href="feigao.me/posts/coursera-machine-learning-week-2.html" rel="alternate"></link><updated>2014-07-11T18:21:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-11:feigao.me/posts/coursera-machine-learning-week-2.html</id><summary type="html">&lt;h2 id="linear-regression-with-multiple-variables-week-2"&gt;Linear Regression with Multiple Variables (Week 2)&lt;/h2&gt;
+&lt;h3 id="multiple-features"&gt;Multiple Features&lt;/h3&gt;
+&lt;p&gt;Notations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(n\)&lt;/span&gt;: number of features&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(x^{(i)}\)&lt;/span&gt;: input (features) of i-th training example&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(x_j^{(i)}\)&lt;/span&gt;: value of feature j in i-th training example&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hypothesis:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(x, \theta\)&lt;/span&gt;: &lt;span class="math"&gt;\((n+1)\)&lt;/span&gt;-dim vector (&lt;span class="math"&gt;\(x_0 = 1\)&lt;/span&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(h_\theta(x) = \theta^T x\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="gradient-descent-for-multiple-variables"&gt;Gradient Descent for Multiple Variables&lt;/h3&gt;
+&lt;p&gt;Matrix Dimensions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(X\)&lt;/span&gt;: &lt;span class="math"&gt;\(m \times (n+1)\)&lt;/span&gt;: training examples stored row-wise&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\theta\)&lt;/span&gt;: &lt;span class="math"&gt;\((n+1) \times 1\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(y\)&lt;/span&gt;: &lt;span class="math"&gt;\(m \times 1\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Gradient descent:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hypothesis: &lt;span class="math"&gt;\(h_\theta(X) = X \theta\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Parameters: &lt;span class="math"&gt;\(\theta\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Cost function: &lt;span class="math"&gt;\(J(\theta) = \frac{1}{2m} (X \theta - y)^T (X \theta - y)\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Gradient descent: &lt;span class="math"&gt;\(\theta := \theta - \alpha \nabla J(\theta) = \theta - \frac{\alpha}{m} X^T (X \theta - y)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="feature-scaling"&gt;Feature Scaling&lt;/h3&gt;
+&lt;p&gt;Idea: make sure features are on a similar scale&lt;/p&gt;
+&lt;p&gt;Mean normalization: to make features have approximately zero mean (not &lt;span class="math"&gt;\(x_0\)&lt;/span&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(x_i := (x_i - \mu_i)/s_i\)&lt;/span&gt;, where &lt;span class="math"&gt;\(\mu_i\)&lt;/span&gt; is the average and &lt;span class="math"&gt;\(s_i\)&lt;/span&gt; is range or standard deviation.&lt;/p&gt;
+&lt;p&gt;Run faster and converge in fewer iterations&lt;/p&gt;
+&lt;h3 id="learning-rate"&gt;Learning Rate&lt;/h3&gt;
+&lt;p&gt;Make sure gradient descent is working correctly.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Plot &lt;span class="math"&gt;\(\min_\theta J(\theta)\)&lt;/span&gt; vs number of iterations. It should decrease and near x axis.&lt;/li&gt;
+&lt;li&gt;If &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt; is too large, cost function may not decrease on every iteration, or may not converge.&lt;/li&gt;
+&lt;li&gt;For sufficiently small &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;, &lt;span class="math"&gt;\(J(\theta)\)&lt;/span&gt; should decrease on every iteration.&lt;/li&gt;
+&lt;li&gt;But if &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt; is too small, convergence can be slow.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Try &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt; in log: ..., 0.01, 0.03, 0.1, 0.3, 1, ...&lt;/p&gt;
+&lt;h3 id="features-and-polynomial-regression"&gt;Features and Polynomial Regression&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Assume &lt;span class="math"&gt;\(h = \theta_0 + \theta_1 x + \theta_2 x^2\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Just define &lt;span class="math"&gt;\(x_0 = 1\)&lt;/span&gt;, &lt;span class="math"&gt;\(x_1 = x\)&lt;/span&gt;, &lt;span class="math"&gt;\(x_2 = x^2\)&lt;/span&gt;.&lt;/li&gt;
+&lt;li&gt;Becomes linear: &lt;span class="math"&gt;\(\sum_i \theta_i x_i\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Be careful of &lt;em&gt;feature scaling&lt;/em&gt;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="normal-equation"&gt;Normal Equation&lt;/h3&gt;
+&lt;p&gt;Method to solve for &lt;span class="math"&gt;\(\theta\)&lt;/span&gt; &lt;em&gt;analytically&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Intuition:&lt;/p&gt;
+&lt;p&gt;Solve the equation: &lt;code&gt;(partial) derivation == zero&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(X\)&lt;/span&gt;: design matrix (&lt;span class="math"&gt;\(m \times (n+1)\)&lt;/span&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(y\)&lt;/span&gt;: &lt;span class="math"&gt;\(m \times 1\)&lt;/span&gt;-dim vector&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\theta = (X^T X)^{-1} X^T y\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Octave: &lt;code&gt;pinv(X'*X)*X'*y&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Feature scaling is &lt;em&gt;NOT&lt;/em&gt; needed in normal equation.&lt;/p&gt;
+&lt;p&gt;Comparison:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gradient Descent:&lt;ol&gt;
+&lt;li&gt;need to choose &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;many iterations&lt;/li&gt;
+&lt;li&gt;work well even for large &lt;span class="math"&gt;\(n\)&lt;/span&gt; (experience &lt;span class="math"&gt;\(&amp;gt;10^6\)&lt;/span&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Normal Equation&lt;ol&gt;
+&lt;li&gt;no need&lt;/li&gt;
+&lt;li&gt;no iteration&lt;/li&gt;
+&lt;li&gt;computing matrix inverse is slow when &lt;span class="math"&gt;\(n\)&lt;/span&gt; is large: &lt;span class="math"&gt;\(O(n^3)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="normal-equation-noninvertibility-optional"&gt;Normal Equation Noninvertibility (Optional)&lt;/h3&gt;
+&lt;p&gt;What if &lt;span class="math"&gt;\(X'X\)&lt;/span&gt; is not invertible? (singular/degenerate)&lt;/p&gt;
+&lt;p&gt;In Octave, &lt;code&gt;pinv&lt;/code&gt; is pseudo-inverse and works well here.&lt;/p&gt;
+&lt;p&gt;Why?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Redundant features (linearly dependent)&lt;/li&gt;
+&lt;li&gt;Too many features (e.g. &lt;span class="math"&gt;\(m \le n\)&lt;/span&gt;).&lt;ul&gt;
+&lt;li&gt;Delete some features, or use &lt;em&gt;regularization&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="octave-tutorial-week-2"&gt;Octave Tutorial (Week 2)&lt;/h2&gt;
+&lt;p&gt;Codes are selected from &lt;a href="https://share.coursera.org/wiki/index.php/ML:Octave_Tutorial"&gt;course wiki&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="basic-operations"&gt;Basic Operations&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%% Change Octave prompt&lt;/span&gt;
+&lt;span class="n"&gt;PS1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;gt;&amp;gt; &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="c"&gt;%% Change working directory in windows example:&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;c:/path/to/desired/directory name&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;%% Note that it uses normal slashes and does not uses escape characters for the empty spaces.&lt;/span&gt;
+
+&lt;span class="c"&gt;%% elementary operations&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="mi"&gt;2&lt;/span&gt;^&lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;  &lt;span class="c"&gt;% false&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;~=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;  &lt;span class="c"&gt;% true.  note, not &amp;quot;!=&amp;quot;&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;xor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="c"&gt;%% variable assignment&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c"&gt;% semicolon suppresses output&lt;/span&gt;
+&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="c"&gt;% Displaying them:&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;pi&lt;/span&gt;
+&lt;span class="nb"&gt;disp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;disp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sprintf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;2 decimals: %0.2f&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="nb"&gt;disp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sprintf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;6 decimals: %0.6f&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="n"&gt;long&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;
+&lt;span class="n"&gt;format&lt;/span&gt; &lt;span class="n"&gt;short&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;
+
+
+&lt;span class="c"&gt;%%  vectors and matrices&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;                      &lt;span class="c"&gt;% from 1 to 2, with stepsize of 0.1. Useful for plot axes&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;                            &lt;span class="c"&gt;% from 1 to 6, assumes stepsize of 1 (row vector)&lt;/span&gt;
+
+&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nb"&gt;ones&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                    &lt;span class="c"&gt;% same as C = [2 2 2; 2 2 2]&lt;/span&gt;
+&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;ones&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                      &lt;span class="c"&gt;% 1x3 vector of ones&lt;/span&gt;
+&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                      &lt;span class="c"&gt;% drawn from a uniform distribution&lt;/span&gt;
+&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                     &lt;span class="c"&gt;% drawn from a normal distribution (mean=0, var=1)&lt;/span&gt;
+&lt;span class="n"&gt;w&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;randn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c"&gt;% (mean = -6, var = 10)&lt;/span&gt;
+&lt;span class="n"&gt;hist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                            &lt;span class="c"&gt;% plot histogram using 10 bins (default)&lt;/span&gt;
+&lt;span class="n"&gt;hist&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                         &lt;span class="c"&gt;% plot histogram using 50 bins&lt;/span&gt;
+
+&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                         &lt;span class="c"&gt;% 4x4 identity matrix&lt;/span&gt;
+
+&lt;span class="c"&gt;% help function&lt;/span&gt;
+&lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="nb"&gt;eye&lt;/span&gt;
+&lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="nb"&gt;rand&lt;/span&gt;
+&lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="moving-data-around"&gt;Moving Data Around&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%% dimensions&lt;/span&gt;
+&lt;span class="n"&gt;sz&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% 1x2 matrix: [(number of rows) (number of columns)]&lt;/span&gt;
+&lt;span class="nb"&gt;size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;% number of rows&lt;/span&gt;
+&lt;span class="nb"&gt;size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;% number of cols&lt;/span&gt;
+&lt;span class="nb"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;% size of longest dimension&lt;/span&gt;
+
+
+&lt;span class="c"&gt;%% loading data&lt;/span&gt;
+&lt;span class="n"&gt;pwd&lt;/span&gt;                            &lt;span class="c"&gt;% show current directory (current path)&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;C:\Users\ang\Octave files&amp;#39;&lt;/span&gt; &lt;span class="c"&gt;% change directory&lt;/span&gt;
+&lt;span class="n"&gt;ls&lt;/span&gt;                             &lt;span class="c"&gt;% list files in current directory&lt;/span&gt;
+&lt;span class="n"&gt;load&lt;/span&gt; &lt;span class="n"&gt;q1y&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dat&lt;/span&gt;                   &lt;span class="c"&gt;% alternatively, load(&amp;#39;q1y.dat&amp;#39;)&lt;/span&gt;
+&lt;span class="n"&gt;load&lt;/span&gt; &lt;span class="n"&gt;q1x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dat&lt;/span&gt;
+&lt;span class="n"&gt;who&lt;/span&gt;                            &lt;span class="c"&gt;% list variables in workspace&lt;/span&gt;
+&lt;span class="n"&gt;whos&lt;/span&gt;                           &lt;span class="c"&gt;% list variables in workspace (detailed view)&lt;/span&gt;
+&lt;span class="n"&gt;clear&lt;/span&gt; &lt;span class="n"&gt;q1y&lt;/span&gt;                      &lt;span class="c"&gt;% clear w/ no argt clears all&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;q1x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;                 &lt;span class="c"&gt;% first 10 elements of q1x (counts down the columns)&lt;/span&gt;
+&lt;span class="n"&gt;save&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mat&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;              &lt;span class="c"&gt;% save variable v into file hello.mat&lt;/span&gt;
+&lt;span class="n"&gt;save&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ascii&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;       &lt;span class="c"&gt;% save as ascii&lt;/span&gt;
+&lt;span class="c"&gt;% fopen, fread, fprintf, fscanf also work  [[not needed in class]]&lt;/span&gt;
+
+&lt;span class="c"&gt;%% indexing&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                    &lt;span class="c"&gt;% indexing is (row,col)&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,:)&lt;/span&gt;                    &lt;span class="c"&gt;% get the 2nd row&lt;/span&gt;
+                          &lt;span class="c"&gt;% &amp;quot;:&amp;quot; means every element along that dimension&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(:,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                    &lt;span class="c"&gt;% get the 2nd col&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;],:)&lt;/span&gt;                &lt;span class="c"&gt;% print all  the elements of rows 1 and 3&lt;/span&gt;
+
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(:,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;     &lt;span class="c"&gt;% change second column&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;102&lt;/span&gt;&lt;span class="p"&gt;]];&lt;/span&gt; &lt;span class="c"&gt;% append column vec&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;(:)&lt;/span&gt;                      &lt;span class="c"&gt;% Select all elements as a column vector.&lt;/span&gt;
+
+&lt;span class="c"&gt;% Putting data together&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt; &lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;13&lt;/span&gt; &lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c"&gt;% same dims as A&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c"&gt;% or [A,B] - concatenating A and B matrices side by side&lt;/span&gt;
+&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="c"&gt;% Concatenating A and B top and bottom&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="computing-on-data"&gt;Computing on Data&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%% matrix operations&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;C&lt;/span&gt;  &lt;span class="c"&gt;% matrix multiplication&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;.*&lt;/span&gt; &lt;span class="n"&gt;B&lt;/span&gt; &lt;span class="c"&gt;% element-wise multiplcation&lt;/span&gt;
+       &lt;span class="c"&gt;% A .* C  or A * B gives error - wrong dimensions&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;.^&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="c"&gt;% element-wise square of each element in A&lt;/span&gt;
+&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;   &lt;span class="c"&gt;% element-wise reciprocal&lt;/span&gt;
+&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% functions like this operate element-wise on vecs or matrices&lt;/span&gt;
+&lt;span class="nb"&gt;exp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;abs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;  &lt;span class="c"&gt;% -1*v&lt;/span&gt;
+
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nb"&gt;ones&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;length&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;  &lt;span class="c"&gt;% same&lt;/span&gt;
+
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt;  &lt;span class="c"&gt;% matrix transpose&lt;/span&gt;
+
+&lt;span class="c"&gt;%% misc useful functions&lt;/span&gt;
+
+&lt;span class="c"&gt;% max  (or min)&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;ind&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% val -  maximum element of the vector a and index - index value where maximum occur&lt;/span&gt;
+&lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="c"&gt;% if A is matrix, returns max from each column&lt;/span&gt;
+
+&lt;span class="c"&gt;% find&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;              &lt;span class="c"&gt;% [1 0 1 1]&lt;/span&gt;
+&lt;span class="nb"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;        &lt;span class="c"&gt;% [1 3 4]&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;magic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;       &lt;span class="c"&gt;% magic square&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;find&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;% row, column indices for values matching comparison&lt;/span&gt;
+
+&lt;span class="c"&gt;% sum, prod&lt;/span&gt;
+&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;prod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;floor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                        &lt;span class="c"&gt;% or ceil(a)&lt;/span&gt;
+&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="nb"&gt;rand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;max&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,[],&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                     &lt;span class="c"&gt;% maximum along columns(defaults to columns - max(A,[]))&lt;/span&gt;
+&lt;span class="n"&gt;min&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,[],&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                     &lt;span class="c"&gt;% miminum along rows&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;magic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                        &lt;span class="c"&gt;% sum along columns&lt;/span&gt;
+&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;                        &lt;span class="c"&gt;% sum along rows&lt;/span&gt;
+&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;.*&lt;/span&gt; &lt;span class="nb"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;))&lt;/span&gt;         &lt;span class="c"&gt;% sum along diag&lt;/span&gt;
+&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="o"&gt;.*&lt;/span&gt; &lt;span class="nb"&gt;flipud&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;eye&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="c"&gt;% sum along anti-diag&lt;/span&gt;
+
+
+&lt;span class="c"&gt;% Matrix inverse (pseudo-inverse)&lt;/span&gt;
+&lt;span class="n"&gt;pinv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;        &lt;span class="c"&gt;% inv(A&amp;#39;*A)*A&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="plotting-data"&gt;Plotting Data&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%% plotting&lt;/span&gt;
+&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.01&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;0.98&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="n"&gt;y1&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nb"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;y2&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;cos&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nb"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;hold&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;                 &lt;span class="c"&gt;% &amp;quot;hold off&amp;quot; to turn off&lt;/span&gt;
+&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;value&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;sin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;cos&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;my plot&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dpng&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;myPlot.png&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;                   &lt;span class="c"&gt;% or,  &amp;quot;close all&amp;quot; to close all figs&lt;/span&gt;
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;          &lt;span class="c"&gt;% can specify the figure number&lt;/span&gt;
+&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;          &lt;span class="c"&gt;% Divide plot into 1x2 grid, access 1st element&lt;/span&gt;
+&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;subplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;          &lt;span class="c"&gt;% Divide plot into 1x2 grid, access 2nd element&lt;/span&gt;
+&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;      &lt;span class="c"&gt;% change axis scale&lt;/span&gt;
+
+&lt;span class="c"&gt;%% display a matrix (or image)&lt;/span&gt;
+&lt;span class="n"&gt;figure&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;imagesc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;magic&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;colorbar&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;colormap&lt;/span&gt; &lt;span class="n"&gt;gray&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="c"&gt;% comma-chaining function calls.&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="control-statements-for-while-and-if"&gt;Control Statements: for, while, and if&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;zeros&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nb"&gt;i&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;^&lt;span class="nb"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="c"&gt;% Can also use &amp;quot;break&amp;quot; and &amp;quot;continue&amp;quot; inside for and while loops to control execution.&lt;/span&gt;
+
+&lt;span class="nb"&gt;i&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nb"&gt;i&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="nb"&gt;i&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="n"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;999&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nb"&gt;i&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;i&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nb"&gt;disp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;The value is one!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;elseif&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="nb"&gt;disp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;The value is two!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+  &lt;span class="nb"&gt;disp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;The value is not one or two!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="functions"&gt;Functions&lt;/h3&gt;
+&lt;p&gt;To create a function, save the file as &lt;code&gt;squareandCubeThisNo.m&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;% squareandCubeThisNo.m&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;[y1, y2] &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;squareandCubeThisNo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;x&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;y1&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;^&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;y2&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;^&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To call the function in Octave.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%% 1. Navigate to dir:&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;function&lt;/span&gt;
+&lt;span class="c"&gt;%% 2. Add path for current session&lt;/span&gt;
+&lt;span class="n"&gt;addpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/path/to/function&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c"&gt;%% 2.1 Could remember the path for future sessions&lt;/span&gt;
+&lt;span class="n"&gt;savepath&lt;/span&gt;
+
+&lt;span class="c"&gt;%% call function&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;squareandCubeThisNo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="vectorization"&gt;Vectorization&lt;/h3&gt;
+&lt;p&gt;Vectorization is the process of taking code that relies on &lt;em&gt;loops&lt;/em&gt; and converting it into &lt;em&gt;matrix operations&lt;/em&gt;. It is more efficient, more elegant, and more concise.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%% With loops:&lt;/span&gt;
+&lt;span class="n"&gt;prediction&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nb"&gt;j&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="n"&gt;prediction&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;theta&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;j&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="c"&gt;%% With vectorization:&lt;/span&gt;
+&lt;span class="n"&gt;prediction&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="n"&gt;theta&lt;/span&gt;&lt;span class="o"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="working-on-and-submitting-programming-exercises"&gt;Working on and Submitting Programming Exercises&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Download and extract zip file.&lt;/li&gt;
+&lt;li&gt;Edit proper &lt;code&gt;.m&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;Run Octave and cd to directory.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;submit&lt;/code&gt; function and follow the instructions.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="ml"></category><category term="coursera"></category><category term="octave"></category></entry><entry><title>[RT] Anti-Patterns in Python Programming</title><link href="feigao.me/posts/rt-anti-patterns-in-python-programming.html" rel="alternate"></link><updated>2014-07-11T10:35:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-11:feigao.me/posts/rt-anti-patterns-in-python-programming.html</id><summary type="html">&lt;blockquote&gt;
+&lt;p&gt;This page is a collection of the most unfortunate but occasionally subtle issues I've seen in code written by students new to writing Python. It's written to help students get past the phase of writing ugly Python code and understand some of the most common idioms.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="http://ift.tt/QVUZHW" title="Anti-Patterns in Python Programming"&gt;Continue with the full story.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;July 11, 2014 at 10:35AM &lt;em&gt;via&lt;/em&gt; Pocket&lt;/p&gt;</summary><category term="python"></category><category term="pocket"></category></entry><entry><title>July 10, 2014 via Instagram</title><link href="feigao.me/posts/2014-07-10-instagram.html" rel="alternate"></link><updated>2014-07-10T20:45:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-10:feigao.me/posts/2014-07-10-instagram.html</id><summary type="html">&lt;p&gt;A little thing on my window.&lt;/p&gt;
+&lt;iframe src="http://ift.tt/1kHRc9L" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Check it on &lt;a href="http://ift.tt/VOHoW4"&gt;my Instagram&lt;/a&gt;.&lt;/p&gt;</summary><category term="photo"></category></entry><entry><title>July 04, 2014 via Instagram</title><link href="feigao.me/posts/2014-07-04-instagram.html" rel="alternate"></link><updated>2014-07-04T13:41:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-04:feigao.me/posts/2014-07-04-instagram.html</id><summary type="html">&lt;iframe src="http://ift.tt/1qV1SXB" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Check it on my &lt;a href="http://ift.tt/1qDSl9J"&gt;Instagram&lt;/a&gt;. &lt;/p&gt;</summary><category term="photo"></category></entry><entry><title>Notes on Machine Learning at Coursera, Week 1</title><link href="feigao.me/posts/coursera-machine-learning-week-1.html" rel="alternate"></link><updated>2014-07-03T16:31:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-03:feigao.me/posts/coursera-machine-learning-week-1.html</id><summary type="html">&lt;p&gt;Start to take the famous &lt;a href="https://www.coursera.org/course/ml"&gt;Machine Learning&lt;/a&gt; course on Coursera. So these will be a series of study notes.&lt;/p&gt;
+&lt;p&gt;About the Course:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Machine learning is the science of getting computers to act without being explicitly programmed. In the past decade, machine learning has given us self-driving cars, practical speech recognition, effective web search, and a vastly improved understanding of the human genome. Machine learning is so pervasive today that you probably use it dozens of times a day without knowing it. Many researchers also think it is the best way to make progress towards human-level AI. In this class, you will learn about the most effective machine learning techniques, and gain practice implementing them and getting them to work for yourself. More importantly, you'll learn about not only the theoretical underpinnings of learning, but also gain the practical know-how needed to quickly and powerfully apply these techniques to new problems. Finally, you'll learn about some of Silicon Valley's best practices in innovation as it pertains to machine learning and AI.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Chinese introduction from &lt;a href="http://mooc.guokr.com/course/16/Machine-Learning/"&gt;MOOC&lt;/a&gt; at &lt;a href="http://www.guokr.com"&gt;Guokr&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 机器学习是一种让计算机在没有事先明确地编程的情况下做出正确反应的科学 。 在过去的十年中 , 机器学习已经给我们在自动驾驶汽车 , 实用语音识别 , 有效的网络搜索 , 以及提高人类基因组的认识方面带来大量帮助 。 今天的机器学习是如此普遍 , 你可能使用它每天几十次却不了解它 。 许多研究人员也认为这是最好的达到真正的 “ 人工智能 ” 的方法 。 在这节课 , 你将学习最有效的机器学习技术 , 获得实践并应用这种技术为自己服务的经验 。 最后 , 你将了解一些硅谷的创新的最佳实践 , 因为它属于机器学习和人工智能 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="introduction-week-1"&gt;Introduction (Week 1)&lt;/h2&gt;
+&lt;h3 id="what-is-machine-learning"&gt;What is Machine Learning&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Definition&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Tom Mitchell (1998):&lt;/p&gt;
+&lt;p&gt;A computer program is said to &lt;strong&gt;learn&lt;/strong&gt; from &lt;em&gt;experience&lt;/em&gt; E with respect to some &lt;em&gt;task&lt;/em&gt; T and some &lt;em&gt;performance measure&lt;/em&gt; P, if its performance on T, as measured by P, improves with experience E.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Algorithms:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Supervised learning&lt;/li&gt;
+&lt;li&gt;Unsupervised learning&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Others:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reinforcement learning&lt;/li&gt;
+&lt;li&gt;Recommender systems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Also talk about: practical advice for applying learning algorithms&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="supervised-learning"&gt;Supervised Learning&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Supervised Learning: &lt;strong&gt;right answers&lt;/strong&gt; given&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Regression: predict continuous valued output&lt;/li&gt;
+&lt;li&gt;Classification: discrete valued output&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="unsupervised-learning"&gt;Unsupervised Learning&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Clustering&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Applications:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;organize computing clusters&lt;/li&gt;
+&lt;li&gt;social network analysis&lt;/li&gt;
+&lt;li&gt;market segmentation&lt;/li&gt;
+&lt;li&gt;astronomical data analysis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cocktail party problem algorithm&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;[W,s,v] = svd((repmat(sum(x.*x,1),size(x,1),1).*x)*x&amp;#39;);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="linear-regression-with-one-variable-week-1"&gt;Linear Regression with One Variable (Week 1)&lt;/h2&gt;
+&lt;h3 id="model-representation"&gt;Model Representation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Supervised learning:&lt;ul&gt;
+&lt;li&gt;given the &lt;em&gt;right answer&lt;/em&gt; for each example in the data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Regression problem:&lt;ul&gt;
+&lt;li&gt;predict &lt;em&gt;real-valued&lt;/em&gt; output&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Classification problem:&lt;ul&gt;
+&lt;li&gt;predict &lt;em&gt;discrete-valued&lt;/em&gt; output&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="example-housing-prices-vs-sizes"&gt;Example: housing prices vs. sizes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Notations:&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(m\)&lt;/span&gt; = number of training examples&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(x\)&lt;/span&gt; = input variable / features&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(y\)&lt;/span&gt; = output variable / &lt;em&gt;target&lt;/em&gt; variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Building model&lt;ol&gt;
+&lt;li&gt;Training set&lt;/li&gt;
+&lt;li&gt;Learning algorithm&lt;/li&gt;
+&lt;li&gt;function &lt;span class="math"&gt;\(h\)&lt;/span&gt; named Hypothesis&lt;ul&gt;
+&lt;li&gt;input: &lt;span class="math"&gt;\(x\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;output: &lt;span class="math"&gt;\(y\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;How to represent &lt;span class="math"&gt;\(h\)&lt;/span&gt;?
+&lt;div class="math"&gt;$$ h_\theta(x) = \theta_0 + \theta_1 x $$&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="cost-function"&gt;Cost Function&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Hypothesis: &lt;span class="math"&gt;\(h_\theta(x) = \theta_0 + \theta_1 x\)&lt;/span&gt;&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\theta_i\)&lt;/span&gt;'s: parameters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;How to choose parameters?&lt;ul&gt;
+&lt;li&gt;idea: choose &lt;span class="math"&gt;\(\theta\)&lt;/span&gt;'s so that &lt;span class="math"&gt;\(h(x)\)&lt;/span&gt; is close to &lt;span class="math"&gt;\(y\)&lt;/span&gt; for training examples &lt;span class="math"&gt;\((x, y)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cost function:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="math"&gt;$$\min_{\theta_0, \theta_1} J(\theta_0, \theta_1) = \frac{1}{2m} \sum_i (h_\theta (x^i) - y^i)^2$$&lt;/div&gt;
+&lt;p&gt;Intuition&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Assume &lt;span class="math"&gt;\(\theta_0 = 0\)&lt;/span&gt;, then &lt;span class="math"&gt;\(J(\theta_1)\)&lt;/span&gt; is a quadratic equation.&lt;/li&gt;
+&lt;li&gt;Assume both &lt;span class="math"&gt;\(\theta\)&lt;/span&gt;'s, the figure is bowl-like (convex).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="gradient-descent"&gt;Gradient Descent&lt;/h3&gt;
+&lt;p&gt;Have some function &lt;span class="math"&gt;\(J(\theta)\)&lt;/span&gt;,  Want &lt;span class="math"&gt;\(\min_\theta J(\theta)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Outline:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start with some &lt;span class="math"&gt;\(\theta\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Keep changing &lt;span class="math"&gt;\(\theta\)&lt;/span&gt; to reduce &lt;span class="math"&gt;\(J(\theta)\)&lt;/span&gt; until we hopefully end up at a minimum&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Algorithm:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Repeat until convergence: &lt;div class="math"&gt;$$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$$&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;: learning rate (always positive)&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(\partial J / \partial \theta_j\)&lt;/span&gt;: derivative&lt;/li&gt;
+&lt;li&gt;Correct: simultaneous update all &lt;span class="math"&gt;\(j\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Intuition&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;derivative: direction of step&lt;/li&gt;
+&lt;li&gt;learning rate: length of step&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Gradient descent can converge to a &lt;em&gt;local minimum&lt;/em&gt;, even with the learning rate &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt; fixed. As we approach a local minimum, gradient descent will automatically take smaller steps. So, no need to decrease &lt;span class="math"&gt;\(\alpha\)&lt;/span&gt; over time.&lt;/p&gt;
+&lt;h4 id="gradient-descent-for-linear-regression"&gt;Gradient descent for linear regression&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;convex: one global minimum&lt;/li&gt;
+&lt;li&gt;"Batch" Gradient Descent: each step of gradient descent uses all the training examples&lt;/li&gt;
+&lt;li&gt;Numerical solution for gradient&lt;/li&gt;
+&lt;li&gt;Faster than normal equation method for larger data set&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="whats-next"&gt;What's Next&lt;/h3&gt;
+&lt;p&gt;Two extension:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Solve for &lt;span class="math"&gt;\(\theta\)&lt;/span&gt; exactly, without needing iterative algorithm&lt;/li&gt;
+&lt;li&gt;Learn with larger number of features&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="linear-algebra-review-week-1-optional"&gt;Linear Algebra Review (Week 1, Optional)&lt;/h2&gt;
+&lt;p&gt;Pass&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="ml"></category><category term="coursera"></category></entry><entry><title>Install BasicTeX on Mac OS</title><link href="feigao.me/posts/install-basictex-on-mac-os.html" rel="alternate"></link><updated>2014-07-01T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-07-01:feigao.me/posts/install-basictex-on-mac-os.html</id><summary type="html">&lt;h2 id="basictex"&gt;BasicTeX&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="https://www.tug.org/texlive/"&gt;TeX Live 2014&lt;/a&gt; has just been released on June 14. The relevant &lt;a href="http://www.tug.org/mactex/index.html"&gt;MacTeX-2014&lt;/a&gt; is also available. But to most users, the 2.4GB of full MacTeX package seems unnecessary. So I turn to a smaller distribution named &lt;a href="http://www.tug.org/mactex/morepackages.html"&gt;BasicTeX&lt;/a&gt; which is only 95MB.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;BasicTeX is a subset of TeX Live; it is much smaller than TeX Live and yet supports most standard TeX typesetting.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Since BasicTeX is installed in &lt;code&gt;/usr/local/texlive/2014basic&lt;/code&gt;, you can keep the full version of TeX Live too. Later, you could switch the installed versions via "TeX Distribution" in Mac's "System Preferences".&lt;/p&gt;
+&lt;h2 id="installation"&gt;Installation&lt;/h2&gt;
+&lt;h3 id="basictex_1"&gt;BasicTeX&lt;/h3&gt;
+&lt;p&gt;You can download BasicTeX from the above web page and install it by double click. But I personally prefer the package manager &lt;a href="http://caskroom.io"&gt;brew-cask&lt;/a&gt; to handle my apps.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;brew cask install basictex
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="packages"&gt;Packages&lt;/h3&gt;
+&lt;p&gt;BasicTeX uses &lt;code&gt;tlmgr&lt;/code&gt; to manage its packages the same way as TeX Live. After installation, let us update the packages first. Note that, you need administrator password to do these.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo tlmgr update --all
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Though BasicTeX comes with commonly used packages, you may need to install others required by your documents. Here I install &lt;code&gt;IEEEtran&lt;/code&gt; to write IEEE style papers and &lt;code&gt;stmaryrd&lt;/code&gt; to use lots of fancy math symbols.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo tlmgr install IEEEtran
+sudo tlmgr install stmaryrd
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you are not a fan of command line interface, you can use the GUI tool &lt;a href="https://code.google.com/p/mactlmgr/"&gt;TeX Live Utility&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;brew cask install tex-live-utility
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="latexmk-script"&gt;&lt;code&gt;latexmk&lt;/code&gt; Script&lt;/h3&gt;
+&lt;p&gt;Some times, it is painful to manually compile a latex file with bib through the &lt;em&gt;correct&lt;/em&gt; way.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pdflatex file.tex
+bibtex file.aux
+pdflatex file.tex
+pdflatex file.tex
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So I usually use this nice script &lt;a href="http://www.ctan.org/pkg/latexmk/"&gt;&lt;code&gt;latexmk&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;latexmk completely automates the process of generating a LATEX document. Given the source files for a document, latexmk issues the appropriate sequence of commands to generate a .dvi, .ps, .pdf or hard­copy version of the document.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo tlmgr install latexmk
+
+# compile
+latexmk -pdf file.tex
+
+# clean up all nonessential files, except dvi, ps and pdf files.
+latexmk -c
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="errors"&gt;Errors&lt;/h2&gt;
+&lt;h3 id="pcrr7t-font-error"&gt;&lt;code&gt;pcrr7t&lt;/code&gt; Font Error&lt;/h3&gt;
+&lt;p&gt;A minimal working example &lt;code&gt;file.tex&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;\documentclass&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;IEEEtran&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;span class="s"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;\texttt&lt;/span&gt;&lt;span class="nb"&gt;{desc}&lt;/span&gt;&lt;span class="s"&gt;$&lt;/span&gt;
+&lt;span class="k"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{&lt;/span&gt;document&lt;span class="nb"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Compile the above source file will come up with the following messages complaining the font is missing.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;pdflatex file.tex
+
+...
+kpathsea: Running mktexmf pcrr7t
+! I can&lt;span class="s1"&gt;&amp;#39;t find file `pcrr7t&amp;#39;&lt;/span&gt;.
+&amp;lt;*&amp;gt; ...:&lt;span class="o"&gt;=&lt;/span&gt;ljfour&lt;span class="p"&gt;;&lt;/span&gt; mag:&lt;span class="o"&gt;=&lt;/span&gt;1&lt;span class="p"&gt;;&lt;/span&gt; nonstopmode&lt;span class="p"&gt;;&lt;/span&gt; input pcrr7t
+
+Please &lt;span class="nb"&gt;type &lt;/span&gt;another input file name
+! Emergency stop.
+&amp;lt;*&amp;gt; ...:&lt;span class="o"&gt;=&lt;/span&gt;ljfour&lt;span class="p"&gt;;&lt;/span&gt; mag:&lt;span class="o"&gt;=&lt;/span&gt;1&lt;span class="p"&gt;;&lt;/span&gt; nonstopmode&lt;span class="p"&gt;;&lt;/span&gt; input pcrr7t
+
+Transcript written on mfput.log.
+grep: pcrr7t.log: No such file or directory
+mktextfm: &lt;span class="sb"&gt;`&lt;/span&gt;mf-nowin -progname&lt;span class="o"&gt;=&lt;/span&gt;mf &lt;span class="se"&gt;\m&lt;/span&gt;ode:&lt;span class="o"&gt;=&lt;/span&gt;ljfour&lt;span class="p"&gt;;&lt;/span&gt; mag:&lt;span class="o"&gt;=&lt;/span&gt;1&lt;span class="p"&gt;;&lt;/span&gt; nonstopmode&lt;span class="p"&gt;;&lt;/span&gt; input pcrr7t&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; failed to make crr7t.tfm.
+kpathsea: Appending font creation commands to missfont.log.
+
+! Font OT1/pcr/m/n/10&lt;span class="o"&gt;=&lt;/span&gt;pcrr7t at 10.0pt not loadable: Metric &lt;span class="o"&gt;(&lt;/span&gt;TFM&lt;span class="o"&gt;)&lt;/span&gt; file not found.
+&amp;lt;to be &lt;span class="nb"&gt;read &lt;/span&gt;again&amp;gt;
+                   relax
+l.6 &lt;span class="nv"&gt;$\&lt;/span&gt;texttt&lt;span class="o"&gt;{&lt;/span&gt;desc&lt;span class="o"&gt;}&lt;/span&gt;
+                  &lt;span class="err"&gt;$&lt;/span&gt;
+?
+...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The solution turns out to be quite simple: install &lt;code&gt;courier&lt;/code&gt; font via &lt;code&gt;tlmgr&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo tlmgr install courier
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="latex"></category><category term="macos"></category></entry><entry><title>IFTTT is Testing Sina Weibo Channel</title><link href="feigao.me/posts/ifttt-is-testing-sina-weibo-channel.html" rel="alternate"></link><updated>2014-06-28T10:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-28:feigao.me/posts/ifttt-is-testing-sina-weibo-channel.html</id><summary type="html">&lt;p&gt;This morning, I received the invitation to join the &lt;a href="http://weibo.com"&gt;Sina Weibo&lt;/a&gt; preview on &lt;a href="https://ifttt.com"&gt;ifttt&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Invitation Letter" src="https://dl.dropboxusercontent.com/u/1750133/ifttt-sina-weibo-preview-invitation.png" title="Invitation Letter" /&gt;&lt;/p&gt;
+&lt;p&gt;The Channel is in its early stages of development. Currently it supports two triggers and one action.
+&lt;em&gt; triggers:
+    * new post by you
+    * new post by you with hashtag
+&lt;/em&gt; action:
+    * publish a new post&lt;/p&gt;
+&lt;p&gt;The triggers support the following ingredients, where the last one is for with hashtag only.
+&lt;em&gt; Text: The weibo status text.
+&lt;/em&gt; FirstLinkUrl: The first URL found in the weibo.
+&lt;em&gt; UserName: The username of the person who posted the weibo status.
+&lt;/em&gt; PhotoURL: The URL to the attached photo, if present.
+&lt;em&gt; WeiboURL: The URL to the weibo status.
+&lt;/em&gt; CreatedAt: Date and time the weibo was posted.
+* TextNoHashtag: The weibo status text without the specified hashtag.&lt;/p&gt;
+&lt;p&gt;The action (posting new post) has two fields: the text, limited to 140 characters; and an optional photo url.&lt;/p&gt;</summary><category term="ifttt"></category><category term="weibo"></category></entry><entry><title>Murmurs at Jun 26, 2014</title><link href="feigao.me/posts/2014-06-26-murmur.html" rel="alternate"></link><updated>2014-06-26T17:30:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-26:feigao.me/posts/2014-06-26-murmur.html</id><summary type="html">&lt;p&gt;My ThinkVision 22 monitor is finally stop working. The IT sent me a HP LA2405wg. But why the resolution is still not quite good. Maybe I'm spoiled by my retina notebook already.&lt;/p&gt;</summary><category term="murmur"></category></entry><entry><title>Replace Words in Multiple Files</title><link href="feigao.me/posts/replace-words-in-multiple-files.html" rel="alternate"></link><updated>2014-06-26T16:49:09+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-26:feigao.me/posts/replace-words-in-multiple-files.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;find path -type f -iname &lt;span class="s1"&gt;&amp;#39;*.md&amp;#39;&lt;/span&gt; -exec sed -i &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;s/old_word/new_word/g&amp;#39;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;{}&amp;quot;&lt;/span&gt; &lt;span class="se"&gt;\;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The magic &lt;code&gt;-i&lt;/code&gt; option let &lt;code&gt;sed&lt;/code&gt; do inplace substitution. &lt;/p&gt;
+&lt;p&gt;The empty string &lt;code&gt;""&lt;/code&gt; between &lt;code&gt;-i&lt;/code&gt; and pattern is for backup. This is only needed in BSD systems like Mac OS.&lt;/p&gt;</summary><category term="sed"></category><category term="find"></category></entry><entry><title>[RT] 放心吧，母语是英语的人也不一定能听懂英文歌</title><link href="feigao.me/posts/rt-mu-yu-shi-ying-yu-de-ren-ye-bu-yi-ding-neng-ting-dong-ying-wen-ge.html" rel="alternate"></link><updated>2014-06-25T19:08:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-25:feigao.me/posts/rt-mu-yu-shi-ying-yu-de-ren-ye-bu-yi-ding-neng-ting-dong-ying-wen-ge.html</id><summary type="html">&lt;p&gt;What a relief :)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 我的回答也很简单 ： 即使是英语为母语的人 ， 在听歌的时候也未必能完全听清楚歌词 。 母语者的误听 （slip of ear） 是很常见的现象 ， 在歌词里更是常见 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="http://ift.tt/1nCHXtJ" title=" 放心吧 ， 母语是英语的人也不一定能听懂英文歌 "&gt;Continue with the full story.&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;June 25, 2014 at 07:08PM via Pocket&lt;/p&gt;</summary><category term="language"></category><category term="mondegreen"></category><category term="pocket"></category></entry><entry><title>[RT] Parallel Programming in Python</title><link href="feigao.me/posts/rt-parallel-programming-in-python.html" rel="alternate"></link><updated>2014-06-22T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-22:feigao.me/posts/rt-parallel-programming-in-python.html</id><summary type="html">&lt;blockquote&gt;
+&lt;p&gt;CPUs with multiple cores have become the standard in the recent development of modern computer architectures and we can not only find them in supercomputer facilities but also in our desktop machines at home, and our laptops; even Apple's iPhone 5S got a 1.3 Ghz Dual-core processor in 2013. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="http://sebastianraschka.com/Articles/2014_multiprocessing_intro.html" title="Parallel Programming in Python"&gt;Continue with the full story.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;June 22, 2014 at 02:19PM &lt;em&gt;via&lt;/em&gt; Pocket&lt;/p&gt;</summary><category term="python"></category><category term="pocket"></category></entry><entry><title>2014-06-21-instagram</title><link href="feigao.me/posts/2014-06-21-instagram.html" rel="alternate"></link><updated>2014-06-21T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-21:feigao.me/posts/2014-06-21-instagram.html</id><summary type="html">&lt;iframe src="//instagram.com/p/oYJIYnOUOg/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"&gt;&lt;/iframe&gt;</summary><category term="photo"></category></entry><entry><title>Set Up Blog on Farbox</title><link href="feigao.me/posts/set-up-blog-on-farbox.html" rel="alternate"></link><updated>2014-06-21T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-21:feigao.me/posts/set-up-blog-on-farbox.html</id><summary type="html">&lt;h2 id="short-version"&gt;short version&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;signup dropbox&lt;/li&gt;
+&lt;li&gt;signup farbox with dropbox account&lt;/li&gt;
+&lt;li&gt;set your domain to &lt;code&gt;yourname.farbox.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;have fun&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="long-version"&gt;long version&lt;/h2&gt;
+&lt;p&gt;to be continue...&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Last update: 2014-06-22&lt;/p&gt;</summary><category term="farbox"></category></entry><entry><title>Start to Post on FarBox</title><link href="feigao.me/posts/start-to-post.html" rel="alternate"></link><updated>2014-06-25T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-21:feigao.me/posts/start-to-post.html</id><summary type="html">&lt;h2 id="before-start"&gt;Before Start&lt;/h2&gt;
+&lt;p&gt;As FarBox mentioned in its documentations, this is a highly open and customizable system. So the contents of following only reflect my own experience and you probably should know that my experience is only a few days 8-p&lt;/p&gt;
+&lt;h2 id="post-files"&gt;Post Files&lt;/h2&gt;
+&lt;p&gt;The suffix of the filename of a post, should be one of &lt;code&gt;.txt .md .markdown .mk&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id="file-path"&gt;File Path&lt;/h3&gt;
+&lt;p&gt;File path by default is the &lt;code&gt;category&lt;/code&gt; of the post. For example, &lt;code&gt;/site/it/post1.md&lt;/code&gt; is in category &lt;code&gt;it&lt;/code&gt;; and &lt;code&gt;/site/it/python/post2.md&lt;/code&gt; is in both category &lt;code&gt;it&lt;/code&gt; and category &lt;code&gt;python&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id="file-name"&gt;File Name&lt;/h3&gt;
+&lt;p&gt;Since &lt;code&gt;/path/filename-without-ext&lt;/code&gt; is the defaut url of the post, you should come up with a good name and stick to it. Or, you could set the &lt;code&gt;url&lt;/code&gt; metadata of posts.&lt;/p&gt;
+&lt;h2 id="metadata"&gt;Metadata&lt;/h2&gt;
+&lt;h3 id="standard-fields"&gt;Standard Fields&lt;/h3&gt;
+&lt;p&gt;These may be needed by everyone.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Title: Hello World
+Date: 1949-10-01
+Tags: tag1, tag2
+Status: public / draft&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The following could also be helpful. (Note that, not every templates respect &lt;code&gt;position&lt;/code&gt;, and &lt;code&gt;url&lt;/code&gt; are relative to &lt;code&gt;/post/&lt;/code&gt;)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Url: [default is the path/filename-without-ext]
+Toc: yes / no
+Position: 1024&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="more-on-metadata"&gt;More on Metadata&lt;/h3&gt;
+&lt;p&gt;Generally, there is no bad to provide sufficient metadata when you started a post. They may be supported some day in future. Easily by processing &lt;code&gt;post.metadata.key&lt;/code&gt; of post in the template, you can do a lot of exciting things. &lt;/p&gt;
+&lt;p&gt;For example, in the list view (i.e. &lt;code&gt;/&lt;/code&gt; or &lt;code&gt;/index.html&lt;/code&gt;), every post will show its first 300 characters. (OK, not quite true, see also "Post List Preview".) Usually this words won't give an idea what the post is talking about. Many other static blogging system solve this by providing a summary or excerpt field for author to briefly describe the content of the post with a few sentences.  &lt;/p&gt;
+&lt;p&gt;Actually, it takes only &lt;a href="https://github.com/feigaochn/farbox-templates/commit/12f1634"&gt;one line modification&lt;/a&gt; in the template to support showing the excerpt of a post in default view. If you provide the &lt;code&gt;Excerpt&lt;/code&gt; field in post like these:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Excerpt: A brief introduction of article.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Also it would be great to support another common used key &lt;code&gt;category&lt;/code&gt;. But I'm not sure if this can be done by hacking templates, since currently FarBox parses the &lt;code&gt;category&lt;/code&gt; info directly from file path.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Category: it&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="contents"&gt;Contents&lt;/h2&gt;
+&lt;h3 id="post-list-preview"&gt;Post List Preview&lt;/h3&gt;
+&lt;p&gt;If &lt;code&gt;` is in post content, the content will be split by it and return the first part only in posts list like&lt;/code&gt;index.html`. Note that, this may need supports by certain templates.&lt;/p&gt;
+&lt;h3 id="markdown"&gt;Markdown&lt;/h3&gt;
+&lt;p&gt;Check &lt;a href="markdown-tests"&gt;my another post&lt;/a&gt; on testing markdown support.&lt;/p&gt;
+&lt;h3 id="gist"&gt;Gist&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;gist acd3c4804ecfaba748e2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Oops, why is it not working &amp;gt;_&amp;lt;&lt;/p&gt;
+&lt;h3 id="mathjax"&gt;Mathjax&lt;/h3&gt;
+&lt;p&gt;Inline math with single dollar &lt;code&gt;$n=\beta$&lt;/code&gt;: &lt;span class="math"&gt;\(n=\beta\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Equation with double dollars sign &lt;code&gt;$$\alpha = \lim_{x \to 0} f(x)$$&lt;/code&gt;: &lt;/p&gt;
+&lt;div class="math"&gt;$$\alpha=\lim_{x\to0} f(x).$$&lt;/div&gt;
+&lt;p&gt;Or fancy code with &lt;code&gt;mathjax&lt;/code&gt; syntax:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;\int_{x=0}^{\infty} \sin(x) d x
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can even use &lt;code&gt;eqnarray&lt;/code&gt;. So good, isn't it!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;\begin&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="x"&gt;eqnarray}&lt;/span&gt;
+&lt;span class="x"&gt;    f(0) &amp;amp; = &amp;amp; 0 \\&lt;/span&gt;
+&lt;span class="x"&gt;    f(1) &amp;amp; = &amp;amp; 1 \\&lt;/span&gt;
+&lt;span class="x"&gt;    f(n) &amp;amp; = &amp;amp; f(n-1) + f(n-2) \text&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="x"&gt; for &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="x"&gt; \ge 2&lt;/span&gt;&lt;span class="p"&gt;$}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;\end&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="x"&gt;eqnarray}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="further-reading"&gt;Further Reading&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Rules for Writing at &lt;a href="http://help.farbox.com/read/basic-writting"&gt;help.farbox.com&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Post Configs at &lt;a href="http://doc.farbox.com/read/post-configs"&gt;doc.farbox.com&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;Last Modified at Jun 25, 2014&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="markdown"></category></entry><entry><title>Reading Notes on Code Like a Pythonista</title><link href="feigao.me/posts/reading-notes-on-code-like-a-pythonista.html" rel="alternate"></link><updated>2014-06-03T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-06-03:feigao.me/posts/reading-notes-on-code-like-a-pythonista.html</id><summary type="html">&lt;h2 id="original-post"&gt;Original post&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html"&gt;Code Like a Pythonista: Idiomatic Python&lt;/a&gt; by &lt;a href="http://python.net/~goodger"&gt;David Goodger&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="toc"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#original-post"&gt;Original post&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#zen-of-python"&gt;Zen of Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#pep-8"&gt;PEP 8&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#whitespace"&gt;Whitespace&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#naming"&gt;Naming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#docstrings-and-comments"&gt;Docstrings and Comments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#practicality-beats-purity"&gt;Practicality Beats Purity&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#idiom-potpourri"&gt;Idiom Potpourri&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#swap-values"&gt;Swap values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#interactive-95-reuse-last-expression"&gt;Interactive "_" Reuse last expression&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#building-strings-from-substrings"&gt;Building Strings from Substrings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#use-in-where-possible"&gt;Use in where possible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dictionary"&gt;Dictionary&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#get-method"&gt;get Method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#setdefault-method"&gt;setdefault Method&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#defaultdict-class"&gt;defaultdict Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#building-dictionaries"&gt;Building Dictionaries&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#truth-values"&gt;Truth Values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#index-and-item"&gt;Index and Item&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#variables-are-just-tags"&gt;Variables Are Just Tags&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#default-parameter-values"&gt;Default Parameter Values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#list-comprehensions"&gt;List Comprehensions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#generators"&gt;Generators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#sorting"&gt;Sorting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#for-loop"&gt;for Loop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#eafp-vs-lbyl"&gt;EAFP vs LBYL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#eafp-tryexcept-example"&gt;EAFP try/except Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#import"&gt;Import&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#modules-and-packages"&gt;Modules and Packages&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#hide-top-level-codes"&gt;Hide Top-Level Codes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#module-structures"&gt;Module Structures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#packages-structures"&gt;Packages structures.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#simple-is-better-than-complex"&gt;Simple is Better Than Complex&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#dont-reinvent-the-wheel"&gt;Don't reinvent the wheel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h2 id="zen-of-python"&gt;Zen of Python&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="go"&gt;&amp;gt;&amp;gt; import this&lt;/span&gt;
+
+&lt;span class="go"&gt;The Zen of Python, by Tim Peters&lt;/span&gt;
+
+&lt;span class="go"&gt;Beautiful is better than ugly.&lt;/span&gt;
+&lt;span class="go"&gt;Explicit is better than implicit.&lt;/span&gt;
+&lt;span class="go"&gt;Simple is better than complex.&lt;/span&gt;
+&lt;span class="go"&gt;Complex is better than complicated.&lt;/span&gt;
+&lt;span class="go"&gt;Flat is better than nested.&lt;/span&gt;
+&lt;span class="go"&gt;Sparse is better than dense.&lt;/span&gt;
+&lt;span class="go"&gt;Readability counts.&lt;/span&gt;
+&lt;span class="go"&gt;Special cases aren&amp;#39;t special enough to break the rules.&lt;/span&gt;
+&lt;span class="go"&gt;Although practicality beats purity.&lt;/span&gt;
+&lt;span class="go"&gt;Errors should never pass silently.&lt;/span&gt;
+&lt;span class="go"&gt;Unless explicitly silenced.&lt;/span&gt;
+&lt;span class="go"&gt;In the face of ambiguity, refuse the temptation to guess.&lt;/span&gt;
+&lt;span class="go"&gt;There should be one-- and preferably only one --obvious way to do it.&lt;/span&gt;
+&lt;span class="go"&gt;Although that way may not be obvious at first unless you&amp;#39;re Dutch.&lt;/span&gt;
+&lt;span class="go"&gt;Now is better than never.&lt;/span&gt;
+&lt;span class="go"&gt;Although never is often better than *right* now.&lt;/span&gt;
+&lt;span class="go"&gt;If the implementation is hard to explain, it&amp;#39;s a bad idea.&lt;/span&gt;
+&lt;span class="go"&gt;If the implementation is easy to explain, it may be a good idea.&lt;/span&gt;
+&lt;span class="go"&gt;Namespaces are one honking great idea -- let&amp;#39;s do more of those!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="pep-8"&gt;PEP 8&lt;/h2&gt;
+&lt;h3 id="whitespace"&gt;Whitespace&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;4 spaces, no tabs.&lt;/li&gt;
+&lt;li&gt;One blank line between functions.&lt;/li&gt;
+&lt;li&gt;Two blank line between classes.&lt;/li&gt;
+&lt;li&gt;Add a space after "," in dicts, lists, tuples, and argument lists; and after ":" in dicts, but not before.&lt;/li&gt;
+&lt;li&gt;Put spaces around assignments and comparisons (except in argument lists).&lt;/li&gt;
+&lt;li&gt;No spaces just inside parentheses or just before argument lists.&lt;/li&gt;
+&lt;li&gt;No spaces just inside docstrings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="naming"&gt;Naming&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;joined_lower&lt;/code&gt; for functions, methods, attributes&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;joined_lower&lt;/code&gt; or &lt;code&gt;ALL_CAPS&lt;/code&gt; for constants&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CamelCase&lt;/code&gt; for classes&lt;/li&gt;
+&lt;li&gt;Attributes: &lt;code&gt;interface&lt;/code&gt;, &lt;code&gt;_internal&lt;/code&gt;, (and &lt;em&gt;try to avoid&lt;/em&gt; &lt;code&gt;__private&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="docstrings-and-comments"&gt;Docstrings and Comments&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Docstrings = &lt;strong&gt;How to use&lt;/strong&gt; code&lt;ul&gt;
+&lt;li&gt;Useful in interactive use (&lt;code&gt;help()&lt;/code&gt;) and for auto-documentation systems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Comments = &lt;strong&gt;Why&lt;/strong&gt; (rationale) and &lt;strong&gt;how code words&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;!!! BUG: ...&lt;/li&gt;
+&lt;li&gt;!!! FIX: This is a hack&lt;/li&gt;
+&lt;li&gt;??? Why is this here&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="practicality-beats-purity"&gt;Practicality Beats Purity&lt;/h3&gt;
+&lt;p&gt;Two good reasons to break a particular rule:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When applying the rule would make the code less readable.&lt;/li&gt;
+&lt;li&gt;To be consistent with surrounding code that also breaks it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;... but practicality shouldn't beat purity to a pulp!&lt;/p&gt;
+&lt;h2 id="idiom-potpourri"&gt;Idiom Potpourri&lt;/h2&gt;
+&lt;h3 id="swap-values"&gt;Swap values&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="interactive-95-reuse-last-expression"&gt;Interactive "_" Reuse last expression&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In the interactive Interpreter, &lt;code&gt;_&lt;/code&gt; stores last &lt;em&gt;printed&lt;/em&gt; expressions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="go"&gt;&amp;gt;&amp;gt; 1 + 1&lt;/span&gt;
+&lt;span class="go"&gt;2&lt;/span&gt;
+&lt;span class="go"&gt;&amp;gt;&amp;gt; _&lt;/span&gt;
+&lt;span class="go"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="building-strings-from-substrings"&gt;Building Strings from Substrings&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;str.join()&lt;/code&gt; method&lt;/li&gt;
+&lt;li&gt;Build a nicely grammatical sentence.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="go"&gt;&amp;gt;&amp;gt; colors = [&amp;#39;red&amp;#39;, &amp;#39;blue&amp;#39;, &amp;#39;green&amp;#39;, &amp;#39;yellow&amp;#39;]&lt;/span&gt;
+&lt;span class="go"&gt;&amp;gt;&amp;gt; print(&amp;#39;Choose&amp;#39;, &amp;#39;, &amp;#39;.join(colors[:-1]), \ &amp;#39;or&amp;#39;, colors[-1])&lt;/span&gt;
+&lt;span class="go"&gt;Choose red, blue, green or yellow&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="use-in-where-possible"&gt;Use &lt;code&gt;in&lt;/code&gt; where possible&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;in&lt;/code&gt; is generally faster.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;key in dict&lt;/code&gt;, not &lt;code&gt;dict.has_key()&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# do this:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;dic&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;do_sth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c"&gt;# not this:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;do_sth&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="dictionary"&gt;Dictionary&lt;/h3&gt;
+&lt;h4 id="get-method"&gt;&lt;code&gt;get&lt;/code&gt; Method&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;dict.get(key, default)&lt;/code&gt; to initialize dictionary entries before use.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;dic&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;dic&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="setdefault-method"&gt;&lt;code&gt;setdefault&lt;/code&gt; Method&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;dict.setdefault(key, default)&lt;/code&gt; to initialize dictionary values.&lt;ul&gt;
+&lt;li&gt;Pro: more efficient if key is expensive to compute.&lt;/li&gt;
+&lt;li&gt;Con: default value always evaluated (could be expensive).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;dic&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setdefault&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[])&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="defaultdict-class"&gt;&lt;code&gt;defaultdict&lt;/code&gt; Class&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;collections.defaultdict&lt;/code&gt; classes&lt;ul&gt;
+&lt;li&gt;it takes a default factory function;&lt;/li&gt;
+&lt;li&gt;the factory function is called to initialize the value when a key is first encountered.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;key in dict&lt;/code&gt; to check for a key, (you may not get &lt;code&gt;KeyError&lt;/code&gt; exceptions as you wish.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;collections&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;defaultdict&lt;/span&gt;
+
+&lt;span class="n"&gt;equities&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;defaultdict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;equity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;equities&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;portfolio&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;equity&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;dic&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;defaultdict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;navs&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;val1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;val2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="building-dictionaries"&gt;Building Dictionaries&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;zip&lt;/code&gt; to build a dict from two lists.&lt;ul&gt;
+&lt;li&gt;size of dict equals shorter list&lt;/li&gt;
+&lt;li&gt;the orders of &lt;code&gt;dict.keys()&lt;/code&gt; and &lt;code&gt;dict.values()&lt;/code&gt; may be &lt;strong&gt;different&lt;/strong&gt; from original, but will &lt;strong&gt;correspond&lt;/strong&gt; each other.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;dic&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="truth-values"&gt;Truth Values&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;False: &lt;code&gt;False&lt;/code&gt;, &lt;code&gt;''&lt;/code&gt; (empty str), &lt;code&gt;0&lt;/code&gt;, &lt;code&gt;0.0&lt;/code&gt;, &lt;code&gt;[]&lt;/code&gt;, &lt;code&gt;()&lt;/code&gt;, &lt;code&gt;{}&lt;/code&gt;, &lt;code&gt;set()&lt;/code&gt;, &lt;code&gt;None&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;True: almost any object that's not explicitly False&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# do this&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="c"&gt;# not this:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="p"&gt;[]:&lt;/span&gt; &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;To control the truth value of instances of a user-defined class, use the &lt;code&gt;__nonzero__&lt;/code&gt;, &lt;code&gt;__bool__&lt;/code&gt; or &lt;code&gt;__len__&lt;/code&gt; special methods. &lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;__len__&lt;/code&gt; if your class is a container which has a length.&lt;/li&gt;
+&lt;li&gt;If your class is not a container, use &lt;code&gt;__nonzero__&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In Python 3.0, &lt;code&gt;__nonzero__&lt;/code&gt; has been renamed to &lt;code&gt;__bool__&lt;/code&gt; for consistency with the &lt;code&gt;bool&lt;/code&gt; built-in type. For compatibility, add this to the class definition: &lt;code&gt;__bool__ = __nonzero__&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="index-and-item"&gt;Index and Item&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;enumerate&lt;/code&gt; function takes a list and returns a &lt;em&gt;generator&lt;/em&gt; containing &lt;code&gt;(index, item)&lt;/code&gt; pairs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="variables-are-just-tags"&gt;Variables Are Just Tags&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Python has "names"&lt;ul&gt;
+&lt;li&gt;In many other languages, assigning to a variable puts a value into a box.&lt;/li&gt;
+&lt;li&gt;In Python, a "name" or "identifier" is like a parcel tag (or nametag) attached to an object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="default-parameter-values"&gt;Default Parameter Values&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Default parameter values better use &lt;code&gt;None&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;bad_append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_item&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[]):&lt;/span&gt;
+&lt;span class="gp"&gt;... &lt;/span&gt;    &lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="gp"&gt;... &lt;/span&gt;    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;a_list&lt;/span&gt;
+&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;bad_append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;one&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="go"&gt;[&amp;#39;one&amp;#39;]&lt;/span&gt;
+&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;bad_append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;two&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="go"&gt;[&amp;#39;one&amp;#39;, &amp;#39;two&amp;#39;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="list-comprehensions"&gt;List Comprehensions&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;new_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;old_list&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;condition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="generators"&gt;Generators&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Use a &lt;strong&gt;generator expression&lt;/strong&gt; when the computed list is just an &lt;em&gt;intermediate step&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Use a &lt;strong&gt;list comprehension&lt;/strong&gt; when a computed list is the desired &lt;em&gt;end result&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sq&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)]&lt;/span&gt;
+&lt;span class="n"&gt;s_sq&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="sorting"&gt;Sorting&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The in-place &lt;code&gt;sort&lt;/code&gt; method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;my_key&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="n"&gt;a_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sort&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;my_key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="for-loop"&gt;&lt;code&gt;for&lt;/code&gt; Loop&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Python lools at the sequence after &lt;code&gt;in&lt;/code&gt;.&lt;ul&gt;
+&lt;li&gt;If it is a simple container (i.e. list, tuple, etc), Python converts it into an &lt;em&gt;iterator&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;If it is already an iterator, Python uses it directly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Python repeatedly calls iterator's &lt;code&gt;next&lt;/code&gt; method, assigns the return value to loop counter (&lt;code&gt;item&lt;/code&gt; in this case), and executes the indented codes.&lt;/li&gt;
+&lt;li&gt;This repeats over and over, until &lt;code&gt;StopIteration&lt;/code&gt; is raised, or a &lt;code&gt;break&lt;/code&gt; statement is executed in the code.&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;for&lt;/code&gt; loop can have an &lt;code&gt;else&lt;/code&gt; clause, whose code is executed &lt;strong&gt;after&lt;/strong&gt; the iterator runs dry, but &lt;strong&gt;not&lt;/strong&gt; after a &lt;code&gt;break&lt;/code&gt; statement is executed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;sequence&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;condition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;break&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="ne"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Condition not satisfied by any item in sequence.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="eafp-vs-lbyl"&gt;EAFP vs LBYL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;It's easier to ask forgiveness than permission.&lt;/li&gt;
+&lt;li&gt;Look before you leap&lt;/li&gt;
+&lt;li&gt;Generally EAFP is preferred, but not always.&lt;ul&gt;
+&lt;li&gt;Exceptions: Use coercion if an object must be a particular type. If &lt;code&gt;x&lt;/code&gt; must be a string for your code to work, why not call &lt;code&gt;str(x)&lt;/code&gt; instead of trying something like &lt;code&gt;isinstance(x, str)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="eafp-tryexcept-example"&gt;EAFP &lt;code&gt;try/except&lt;/code&gt; Example&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You can wrap exception-prone code in a &lt;code&gt;try/except&lt;/code&gt; block to catch the errors, and you will probably end up with a solution that's much more general than if you had tried to anticipate every possibility.&lt;/li&gt;
+&lt;li&gt;Note: Always specify the exceptions to catch. Never use bare &lt;code&gt;except&lt;/code&gt; clauses. Bare &lt;code&gt;except&lt;/code&gt; clauses will catch unexpected exceptions, making your code exceedingly difficult to debug.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="ne"&gt;TypeError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="import"&gt;Import&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DO NOT&lt;/strong&gt; wild-card importing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# NEVER DO THIS!!!&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;module&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+
+&lt;span class="c"&gt;# Do this&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;module&lt;/span&gt;
+&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;long_module_name&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;mod&lt;/span&gt;
+&lt;span class="n"&gt;mod&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;module&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+&lt;span class="n"&gt;name&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="modules-and-packages"&gt;Modules and Packages&lt;/h3&gt;
+&lt;h4 id="hide-top-level-codes"&gt;Hide Top-Level Codes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Better not to put any major executable code at the top-level. Put code in functions, classes, methods, and guard it with &lt;code&gt;if __name__ == '__main__'&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="c"&gt;# script code here&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="module-structures"&gt;Module Structures&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;This is how a module should be structured.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;module docstring&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# imports&lt;/span&gt;
+&lt;span class="c"&gt;# constants&lt;/span&gt;
+&lt;span class="c"&gt;# exception classes&lt;/span&gt;
+&lt;span class="c"&gt;# interface functions&lt;/span&gt;
+&lt;span class="c"&gt;# classes&lt;/span&gt;
+&lt;span class="c"&gt;# internal functions &amp;amp; classes&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="o"&gt;...&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;A more complicated example: command-line processing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;Module docstring.&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;optparse&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;process_command_line&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;    Return a 2-tuple: (settings object, args list).&lt;/span&gt;
+&lt;span class="sd"&gt;    `argv` is a list of arguments, or `None` for ``sys.argv[1:]``.&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
+
+    &lt;span class="c"&gt;# initialize the parser object:&lt;/span&gt;
+    &lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;optparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OptionParser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+        &lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;optparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TitledHelpFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;78&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="n"&gt;add_help_option&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# define options here:&lt;/span&gt;
+    &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;      &lt;span class="c"&gt;# customized description; put --help last&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;-h&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;--help&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;help&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Show this help message and exit.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="c"&gt;# check number of arguments, verify values, etc.:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;program takes no command-line arguments; &amp;#39;&lt;/span&gt;
+                     &lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; ignored.&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,))&lt;/span&gt;
+
+    &lt;span class="c"&gt;# further process settings &amp;amp; args if necessary&lt;/span&gt;
+
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;process_command_line&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="c"&gt;# application code here, like:&lt;/span&gt;
+    &lt;span class="c"&gt;# run(settings, args)&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;        &lt;span class="c"&gt;# success&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4 id="packages-structures"&gt;Packages structures.&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Used to organize your project.&lt;/li&gt;
+&lt;li&gt;Reduces entries in load-path.&lt;/li&gt;
+&lt;li&gt;Reduces import name conflicts.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+    &lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+    &lt;span class="n"&gt;module1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+    &lt;span class="n"&gt;subpackage&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+        &lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+        &lt;span class="n"&gt;module2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;package.module1&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;package.subpackage&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;module2&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;package.subpackage.module2&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3 id="simple-is-better-than-complex"&gt;Simple is Better Than Complex&lt;/h3&gt;
+&lt;h3 id="dont-reinvent-the-wheel"&gt;Don't reinvent the wheel&lt;/h3&gt;
+&lt;p&gt;Before writing any code,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Check Python's standard library.&lt;/li&gt;
+&lt;li&gt;Check "PyPI - the Python Package Index": &lt;a href="https://pypi.python.org/pypi"&gt;https://pypi.python.org/pypi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Search the web.&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="note"></category></entry><entry><title>2014-05-04 Instagram</title><link href="feigao.me/posts/2014-05-04-instagram.html" rel="alternate"></link><updated>2014-05-04T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2014-05-04:feigao.me/posts/2014-05-04-instagram.html</id><summary type="html">&lt;iframe src="//instagram.com/p/nkEbXWOUBD/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"&gt;&lt;/iframe&gt;</summary><category term="photo"></category></entry><entry><title>Pelican Post Template for Default Theme</title><link href="feigao.me/posts/pelican-post-template.html" rel="alternate"></link><updated>2010-01-01T00:00:00+08:00</updated><author><name>Fei Gao</name></author><id>tag:,2010-01-01:feigao.me/posts/pelican-post-template.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;Title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;My&lt;/span&gt; &lt;span class="nb"&gt;super&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;
+&lt;span class="nl"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="nl"&gt;Modified&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2010&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;05&lt;/span&gt; &lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;30&lt;/span&gt;
+&lt;span class="nl"&gt;Category&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Python&lt;/span&gt;
+&lt;span class="nl"&gt;Tags&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pelican&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;publishing&lt;/span&gt;
+&lt;span class="nl"&gt;Slug&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;
+&lt;span class="nl"&gt;Authors&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Alexis&lt;/span&gt; &lt;span class="n"&gt;Metaireau&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;Conan&lt;/span&gt; &lt;span class="n"&gt;Doyle&lt;/span&gt;
+&lt;span class="nl"&gt;Summary&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;index&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="n"&gt;feeds&lt;/span&gt;
+
+&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="nb"&gt;super&lt;/span&gt; &lt;span class="n"&gt;blog&lt;/span&gt; &lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Alt&lt;/span&gt; &lt;span class="n"&gt;Text&lt;/span&gt;&lt;span class="p"&gt;]({&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fav&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is the content of my super blog post.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt Text" src="feigao.me/images/fav.jpg" /&gt;&lt;/p&gt;</summary><category term="pelican"></category></entry></feed>

@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Reading Notes on Code Like a Pythonista - feigao.me</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="feigao.me//images/fav.jpg" rel="icon">
+
+<link rel="canonical" href="feigao.me/posts/reading-notes-on-code-like-a-pythonista.html">
+
+        <meta name="author" content="Fei Gao" />
+        <meta name="keywords" content="python,note" />
+        <meta name="description" content="Original post Code Like a Pythonista: Idiomatic Python by David Goodger. Original post Zen of Python PEP 8 Whitespace Naming Docstrings and Comments Practicality Beats Purity Idiom Potpourri Swap values Interactive &#34;_&#34; Reuse last expression Building Strings from Substrings Use in where possible Dictionary get Method setdefault Method defaultdict Class ..." />
+
+        <meta property="og:site_name" content="feigao.me" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Reading Notes on Code Like a Pythonista"/>
+        <meta property="og:url" content="feigao.me/posts/reading-notes-on-code-like-a-pythonista.html"/>
+        <meta property="og:description" content="Original post Code Like a Pythonista: Idiomatic Python by David Goodger. Original post Zen of Python PEP 8 Whitespace Naming Docstrings and Comments Practicality Beats Purity Idiom Potpourri Swap values Interactive &#34;_&#34; Reuse last expression Building Strings from Substrings Use in where possible Dictionary get Method setdefault Method defaultdict Class ..."/>
+        <meta property="article:published_time" content="2014-06-03" />
+            <meta property="article:section" content="misc" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="note" />
+            <meta property="article:author" content="Fei Gao" />
+
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@feigaochn">
+        <meta name="twitter:creator" content="@feigaochn">
+    <meta name="twitter:domain" content="feigao.me">
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="feigao.me/theme/css/bootstrap.paper.min.css" type="text/css"/>
+    <link href="feigao.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="feigao.me/theme/css/pygments/solarizedlight.css" rel="stylesheet">
+    <link rel="stylesheet" href="feigao.me/theme/css/style.css" type="text/css"/>
+        <link href="feigao.me/static/custom.css" rel="stylesheet">
+
+        <link href="feigao.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="feigao.me ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="feigao.me/" class="navbar-brand">
+feigao.me            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="feigao.me/pages/about-me.html">
+                             about
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="feigao.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <ol class="breadcrumb">
+                <li><a href="feigao.me" title="feigao.me"><i class="fa fa-home fa-lg"></i></a></li>
+                <li class="active">Reading Notes on Code Like a Pythonista</li>
+            </ol>
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="feigao.me/posts/reading-notes-on-code-like-a-pythonista.html"
+                       rel="bookmark"
+                       title="Permalink to Reading Notes on Code Like a Pythonista">
+                        Reading Notes on Code Like a Pythonista
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-06-03T00:00:00+08:00"> 2014-06-03 Tue</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="feigao.me/tag/python.html">python</a>
+        /
+	<a href="feigao.me/tag/note.html">note</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2 id="original-post">Original post</h2>
+<p><a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html">Code Like a Pythonista: Idiomatic Python</a> by <a href="http://python.net/~goodger">David Goodger</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#original-post">Original post</a></li>
+<li><a href="#zen-of-python">Zen of Python</a></li>
+<li><a href="#pep-8">PEP 8</a><ul>
+<li><a href="#whitespace">Whitespace</a></li>
+<li><a href="#naming">Naming</a></li>
+<li><a href="#docstrings-and-comments">Docstrings and Comments</a></li>
+<li><a href="#practicality-beats-purity">Practicality Beats Purity</a></li>
+</ul>
+</li>
+<li><a href="#idiom-potpourri">Idiom Potpourri</a><ul>
+<li><a href="#swap-values">Swap values</a></li>
+<li><a href="#interactive-95-reuse-last-expression">Interactive "_" Reuse last expression</a></li>
+<li><a href="#building-strings-from-substrings">Building Strings from Substrings</a></li>
+<li><a href="#use-in-where-possible">Use in where possible</a></li>
+<li><a href="#dictionary">Dictionary</a><ul>
+<li><a href="#get-method">get Method</a></li>
+<li><a href="#setdefault-method">setdefault Method</a></li>
+<li><a href="#defaultdict-class">defaultdict Class</a></li>
+<li><a href="#building-dictionaries">Building Dictionaries</a></li>
+</ul>
+</li>
+<li><a href="#truth-values">Truth Values</a></li>
+<li><a href="#index-and-item">Index and Item</a></li>
+<li><a href="#variables-are-just-tags">Variables Are Just Tags</a></li>
+<li><a href="#default-parameter-values">Default Parameter Values</a></li>
+<li><a href="#list-comprehensions">List Comprehensions</a></li>
+<li><a href="#generators">Generators</a></li>
+<li><a href="#sorting">Sorting</a></li>
+<li><a href="#for-loop">for Loop</a></li>
+<li><a href="#eafp-vs-lbyl">EAFP vs LBYL</a></li>
+<li><a href="#eafp-tryexcept-example">EAFP try/except Example</a></li>
+<li><a href="#import">Import</a></li>
+<li><a href="#modules-and-packages">Modules and Packages</a><ul>
+<li><a href="#hide-top-level-codes">Hide Top-Level Codes</a></li>
+<li><a href="#module-structures">Module Structures</a></li>
+<li><a href="#packages-structures">Packages structures.</a></li>
+</ul>
+</li>
+<li><a href="#simple-is-better-than-complex">Simple is Better Than Complex</a></li>
+<li><a href="#dont-reinvent-the-wheel">Don't reinvent the wheel</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="zen-of-python">Zen of Python</h2>
+<div class="highlight"><pre><span class="go">&gt;&gt; import this</span>
+
+<span class="go">The Zen of Python, by Tim Peters</span>
+
+<span class="go">Beautiful is better than ugly.</span>
+<span class="go">Explicit is better than implicit.</span>
+<span class="go">Simple is better than complex.</span>
+<span class="go">Complex is better than complicated.</span>
+<span class="go">Flat is better than nested.</span>
+<span class="go">Sparse is better than dense.</span>
+<span class="go">Readability counts.</span>
+<span class="go">Special cases aren&#39;t special enough to break the rules.</span>
+<span class="go">Although practicality beats purity.</span>
+<span class="go">Errors should never pass silently.</span>
+<span class="go">Unless explicitly silenced.</span>
+<span class="go">In the face of ambiguity, refuse the temptation to guess.</span>
+<span class="go">There should be one-- and preferably only one --obvious way to do it.</span>
+<span class="go">Although that way may not be obvious at first unless you&#39;re Dutch.</span>
+<span class="go">Now is better than never.</span>
+<span class="go">Although never is often better than *right* now.</span>
+<span class="go">If the implementation is hard to explain, it&#39;s a bad idea.</span>
+<span class="go">If the implementation is easy to explain, it may be a good idea.</span>
+<span class="go">Namespaces are one honking great idea -- let&#39;s do more of those!</span>
+</pre></div>
+
+
+<h2 id="pep-8">PEP 8</h2>
+<h3 id="whitespace">Whitespace</h3>
+<ul>
+<li>4 spaces, no tabs.</li>
+<li>One blank line between functions.</li>
+<li>Two blank line between classes.</li>
+<li>Add a space after "," in dicts, lists, tuples, and argument lists; and after ":" in dicts, but not before.</li>
+<li>Put spaces around assignments and comparisons (except in argument lists).</li>
+<li>No spaces just inside parentheses or just before argument lists.</li>
+<li>No spaces just inside docstrings.</li>
+</ul>
+<h3 id="naming">Naming</h3>
+<ul>
+<li><code>joined_lower</code> for functions, methods, attributes</li>
+<li><code>joined_lower</code> or <code>ALL_CAPS</code> for constants</li>
+<li><code>CamelCase</code> for classes</li>
+<li>Attributes: <code>interface</code>, <code>_internal</code>, (and <em>try to avoid</em> <code>__private</code>)</li>
+</ul>
+<h3 id="docstrings-and-comments">Docstrings and Comments</h3>
+<ul>
+<li>Docstrings = <strong>How to use</strong> code<ul>
+<li>Useful in interactive use (<code>help()</code>) and for auto-documentation systems.</li>
+</ul>
+</li>
+<li>Comments = <strong>Why</strong> (rationale) and <strong>how code words</strong><ul>
+<li>!!! BUG: ...</li>
+<li>!!! FIX: This is a hack</li>
+<li>??? Why is this here</li>
+</ul>
+</li>
+</ul>
+<h3 id="practicality-beats-purity">Practicality Beats Purity</h3>
+<p>Two good reasons to break a particular rule:</p>
+<ul>
+<li>When applying the rule would make the code less readable.</li>
+<li>To be consistent with surrounding code that also breaks it.</li>
+</ul>
+<p>... but practicality shouldn't beat purity to a pulp!</p>
+<h2 id="idiom-potpourri">Idiom Potpourri</h2>
+<h3 id="swap-values">Swap values</h3>
+<div class="highlight"><pre><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+</pre></div>
+
+
+<h3 id="interactive-95-reuse-last-expression">Interactive "_" Reuse last expression</h3>
+<ul>
+<li>In the interactive Interpreter, <code>_</code> stores last <em>printed</em> expressions.</li>
+</ul>
+<div class="highlight"><pre><span class="go">&gt;&gt; 1 + 1</span>
+<span class="go">2</span>
+<span class="go">&gt;&gt; _</span>
+<span class="go">2</span>
+</pre></div>
+
+
+<h3 id="building-strings-from-substrings">Building Strings from Substrings</h3>
+<ul>
+<li>Use <code>str.join()</code> method</li>
+<li>Build a nicely grammatical sentence.</li>
+</ul>
+<div class="highlight"><pre><span class="go">&gt;&gt; colors = [&#39;red&#39;, &#39;blue&#39;, &#39;green&#39;, &#39;yellow&#39;]</span>
+<span class="go">&gt;&gt; print(&#39;Choose&#39;, &#39;, &#39;.join(colors[:-1]), \ &#39;or&#39;, colors[-1])</span>
+<span class="go">Choose red, blue, green or yellow</span>
+</pre></div>
+
+
+<h3 id="use-in-where-possible">Use <code>in</code> where possible</h3>
+<ul>
+<li><code>in</code> is generally faster.</li>
+</ul>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>Use <code>key in dict</code>, not <code>dict.has_key()</code>.</li>
+</ul>
+<div class="highlight"><pre><span class="c"># do this:</span>
+<span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dic</span><span class="p">:</span>
+    <span class="n">do_sth</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+<span class="c"># not this:</span>
+<span class="k">if</span> <span class="n">dic</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="n">do_sth</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+
+
+<h3 id="dictionary">Dictionary</h3>
+<h4 id="get-method"><code>get</code> Method</h4>
+<ul>
+<li>Use <code>dict.get(key, default)</code> to initialize dictionary entries before use.</li>
+</ul>
+<div class="highlight"><pre><span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dic</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">val</span>
+</pre></div>
+
+
+<h4 id="setdefault-method"><code>setdefault</code> Method</h4>
+<ul>
+<li>Use <code>dict.setdefault(key, default)</code> to initialize dictionary values.<ul>
+<li>Pro: more efficient if key is expensive to compute.</li>
+<li>Con: default value always evaluated (could be expensive).</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">dic</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="defaultdict-class"><code>defaultdict</code> Class</h4>
+<ul>
+<li>Use <code>collections.defaultdict</code> classes<ul>
+<li>it takes a default factory function;</li>
+<li>the factory function is called to initialize the value when a key is first encountered.</li>
+<li>Use <code>key in dict</code> to check for a key, (you may not get <code>KeyError</code> exceptions as you wish.)</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="n">equities</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">equities</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">equity</span><span class="p">)</span>
+
+<span class="n">dic</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">navs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+=</span> <span class="n">val1</span> <span class="o">*</span> <span class="n">val2</span>
+</pre></div>
+
+
+<h4 id="building-dictionaries">Building Dictionaries</h4>
+<ul>
+<li>Use <code>zip</code> to build a dict from two lists.<ul>
+<li>size of dict equals shorter list</li>
+<li>the orders of <code>dict.keys()</code> and <code>dict.values()</code> may be <strong>different</strong> from original, but will <strong>correspond</strong> each other.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span class="n">dic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">))</span>
+</pre></div>
+
+
+<h3 id="truth-values">Truth Values</h3>
+<ul>
+<li>False: <code>False</code>, <code>''</code> (empty str), <code>0</code>, <code>0.0</code>, <code>[]</code>, <code>()</code>, <code>{}</code>, <code>set()</code>, <code>None</code></li>
+<li>True: almost any object that's not explicitly False</li>
+</ul>
+<div class="highlight"><pre><span class="c"># do this</span>
+<span class="k">if</span> <span class="n">x</span><span class="p">:</span> <span class="k">pass</span>
+<span class="k">if</span> <span class="n">items</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="c"># not this:</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span> <span class="k">pass</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">pass</span>
+<span class="k">if</span> <span class="n">items</span> <span class="o">!=</span> <span class="p">[]:</span> <span class="k">pass</span>
+</pre></div>
+
+
+<ul>
+<li>To control the truth value of instances of a user-defined class, use the <code>__nonzero__</code>, <code>__bool__</code> or <code>__len__</code> special methods. <ul>
+<li>Use <code>__len__</code> if your class is a container which has a length.</li>
+<li>If your class is not a container, use <code>__nonzero__</code>.</li>
+<li>In Python 3.0, <code>__nonzero__</code> has been renamed to <code>__bool__</code> for consistency with the <code>bool</code> built-in type. For compatibility, add this to the class definition: <code>__bool__ = __nonzero__</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="index-and-item">Index and Item</h3>
+<ul>
+<li>The <code>enumerate</code> function takes a list and returns a <em>generator</em> containing <code>(index, item)</code> pairs.</li>
+</ul>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">index</span><span class="p">,</span> <span class="n">item</span>
+</pre></div>
+
+
+<h3 id="variables-are-just-tags">Variables Are Just Tags</h3>
+<ul>
+<li>Python has "names"<ul>
+<li>In many other languages, assigning to a variable puts a value into a box.</li>
+<li>In Python, a "name" or "identifier" is like a parcel tag (or nametag) attached to an object.</li>
+</ul>
+</li>
+</ul>
+<h3 id="default-parameter-values">Default Parameter Values</h3>
+<ul>
+<li>Default parameter values better use <code>None</code></li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">bad_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="p">[]):</span>
+<span class="gp">... </span>    <span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_item</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">a_list</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s">&#39;one&#39;</span><span class="p">)</span>
+<span class="go">[&#39;one&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s">&#39;two&#39;</span><span class="p">)</span>
+<span class="go">[&#39;one&#39;, &#39;two&#39;]</span>
+</pre></div>
+
+
+<h3 id="list-comprehensions">List Comprehensions</h3>
+<div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">old_list</span> <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span>
+</pre></div>
+
+
+<h3 id="generators">Generators</h3>
+<ul>
+<li>Use a <strong>generator expression</strong> when the computed list is just an <em>intermediate step</em>.</li>
+<li>Use a <strong>list comprehension</strong> when a computed list is the desired <em>end result</em>.</li>
+</ul>
+<div class="highlight"><pre><span class="n">sq</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">s_sq</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+
+
+<h3 id="sorting">Sorting</h3>
+<ul>
+<li>The in-place <code>sort</code> method</li>
+</ul>
+<div class="highlight"><pre><span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">my_key</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">a_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">my_key</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="for-loop"><code>for</code> Loop</h3>
+<ol>
+<li>Python lools at the sequence after <code>in</code>.<ul>
+<li>If it is a simple container (i.e. list, tuple, etc), Python converts it into an <em>iterator</em>.</li>
+<li>If it is already an iterator, Python uses it directly.</li>
+</ul>
+</li>
+<li>Python repeatedly calls iterator's <code>next</code> method, assigns the return value to loop counter (<code>item</code> in this case), and executes the indented codes.</li>
+<li>This repeats over and over, until <code>StopIteration</code> is raised, or a <code>break</code> statement is executed in the code.</li>
+<li>A <code>for</code> loop can have an <code>else</code> clause, whose code is executed <strong>after</strong> the iterator runs dry, but <strong>not</strong> after a <code>break</code> statement is executed.</li>
+</ol>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+        <span class="k">break</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">&#39;Condition not satisfied by any item in sequence.&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="eafp-vs-lbyl">EAFP vs LBYL</h3>
+<ul>
+<li>It's easier to ask forgiveness than permission.</li>
+<li>Look before you leap</li>
+<li>Generally EAFP is preferred, but not always.<ul>
+<li>Exceptions: Use coercion if an object must be a particular type. If <code>x</code> must be a string for your code to work, why not call <code>str(x)</code> instead of trying something like <code>isinstance(x, str)</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="eafp-tryexcept-example">EAFP <code>try/except</code> Example</h3>
+<ul>
+<li>You can wrap exception-prone code in a <code>try/except</code> block to catch the errors, and you will probably end up with a solution that's much more general than if you had tried to anticipate every possibility.</li>
+<li>Note: Always specify the exceptions to catch. Never use bare <code>except</code> clauses. Bare <code>except</code> clauses will catch unexpected exceptions, making your code exceedingly difficult to debug.</li>
+</ul>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+
+
+<h3 id="import">Import</h3>
+<ul>
+<li><strong>DO NOT</strong> wild-card importing</li>
+</ul>
+<div class="highlight"><pre><span class="c"># NEVER DO THIS!!!</span>
+<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c"># Do this</span>
+<span class="kn">import</span> <span class="nn">module</span>
+<span class="n">module</span><span class="o">.</span><span class="n">name</span>
+
+<span class="kn">import</span> <span class="nn">long_module_name</span> <span class="kn">as</span> <span class="nn">mod</span>
+<span class="n">mod</span><span class="o">.</span><span class="n">name</span>
+
+<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">name</span>
+<span class="n">name</span>
+</pre></div>
+
+
+<h3 id="modules-and-packages">Modules and Packages</h3>
+<h4 id="hide-top-level-codes">Hide Top-Level Codes</h4>
+<ul>
+<li>Better not to put any major executable code at the top-level. Put code in functions, classes, methods, and guard it with <code>if __name__ == '__main__'</code>.</li>
+</ul>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c"># script code here</span>
+</pre></div>
+
+
+<h4 id="module-structures">Module Structures</h4>
+<ul>
+<li>This is how a module should be structured.</li>
+</ul>
+<div class="highlight"><pre><span class="sd">&quot;&quot;&quot;module docstring&quot;&quot;&quot;</span>
+
+<span class="c"># imports</span>
+<span class="c"># constants</span>
+<span class="c"># exception classes</span>
+<span class="c"># interface functions</span>
+<span class="c"># classes</span>
+<span class="c"># internal functions &amp; classes</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>A more complicated example: command-line processing</li>
+</ul>
+<div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module docstring.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">optparse</span>
+
+<span class="k">def</span> <span class="nf">process_command_line</span><span class="p">(</span><span class="n">argv</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a 2-tuple: (settings object, args list).</span>
+<span class="sd">    `argv` is a list of arguments, or `None` for ``sys.argv[1:]``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">argv</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">argv</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="c"># initialize the parser object:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">optparse</span><span class="o">.</span><span class="n">OptionParser</span><span class="p">(</span>
+        <span class="n">formatter</span><span class="o">=</span><span class="n">optparse</span><span class="o">.</span><span class="n">TitledHelpFormatter</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">78</span><span class="p">),</span>
+        <span class="n">add_help_option</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+
+    <span class="c"># define options here:</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_option</span><span class="p">(</span>      <span class="c"># customized description; put --help last</span>
+        <span class="s">&#39;-h&#39;</span><span class="p">,</span> <span class="s">&#39;--help&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;help&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&#39;Show this help message and exit.&#39;</span><span class="p">)</span>
+
+    <span class="n">settings</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span>
+
+    <span class="c"># check number of arguments, verify values, etc.:</span>
+    <span class="k">if</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;program takes no command-line arguments; &#39;</span>
+                     <span class="s">&#39;&quot;</span><span class="si">%s</span><span class="s">&quot; ignored.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">args</span><span class="p">,))</span>
+
+    <span class="c"># further process settings &amp; args if necessary</span>
+
+    <span class="k">return</span> <span class="n">settings</span><span class="p">,</span> <span class="n">args</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">settings</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="n">process_command_line</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span>
+    <span class="c"># application code here, like:</span>
+    <span class="c"># run(settings, args)</span>
+    <span class="k">return</span> <span class="mi">0</span>        <span class="c"># success</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">main</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="packages-structures">Packages structures.</h4>
+<ul>
+<li>Used to organize your project.</li>
+<li>Reduces entries in load-path.</li>
+<li>Reduces import name conflicts.</li>
+</ul>
+<div class="highlight"><pre><span class="n">package</span><span class="o">/</span>
+    <span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">module1</span><span class="o">.</span><span class="n">py</span>
+    <span class="n">subpackage</span><span class="o">/</span>
+        <span class="n">__init__</span><span class="o">.</span><span class="n">py</span>
+        <span class="n">module2</span><span class="o">.</span><span class="n">py</span>
+
+<span class="kn">import</span> <span class="nn">package.module1</span>
+<span class="kn">from</span> <span class="nn">package.subpackage</span> <span class="kn">import</span> <span class="n">module2</span>
+<span class="kn">from</span> <span class="nn">package.subpackage.module2</span> <span class="kn">import</span> <span class="n">name</span>
+</pre></div>
+
+
+<h3 id="simple-is-better-than-complex">Simple is Better Than Complex</h3>
+<h3 id="dont-reinvent-the-wheel">Don't reinvent the wheel</h3>
+<p>Before writing any code,</p>
+<ul>
+<li>Check Python's standard library.</li>
+<li>Check "PyPI - the Python Package Index": <a href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a></li>
+<li>Search the web.</li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'feigaome'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'reading-notes-on-code-like-a-pythonista';
+                var disqus_url = 'feigao.me/posts/reading-notes-on-code-like-a-pythonista.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://twitter.com/feigaochn"><i class="fa fa-twitter fa-lg"></i> twitter</a></li>
+                <li class="list-group-item"><a href="http://weibo.com/feigaochn"><i class="fa fa-weibo fa-lg"></i> weibo</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="feigao.me/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-2">
+                        <a href="feigao.me/tag/coursera.html">
+                            coursera
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/farbox.html">
+                            farbox
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/find.html">
+                            find
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/ifttt.html">
+                            ifttt
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/language.html">
+                            language
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/latex.html">
+                            latex
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="feigao.me/tag/macos.html">
+                            macos
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/markdown.html">
+                            markdown
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="feigao.me/tag/ml.html">
+                            ml
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/mondegreen.html">
+                            mondegreen
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/murmur.html">
+                            murmur
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/note.html">
+                            note
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/octave.html">
+                            octave
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/pelican.html">
+                            pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="feigao.me/tag/photo.html">
+                            photo
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="feigao.me/tag/pocket.html">
+                            pocket
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/procrastination.html">
+                            procrastination
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/productive.html">
+                            productive
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="feigao.me/tag/python.html">
+                            python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/sed.html">
+                            sed
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/weibo.html">
+                            weibo
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="feigao.me/tag/zhihu.html">
+                            zhihu
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+    <li class="list-group-item"><h4><i class="fa fa-twitter fa-lg"></i><span class="icon-label">Latest Tweets</span></h4></li>
+    <div id="twitter_timeline">
+        <a class="twitter-timeline" data-chrome="noheader" href="https://twitter.com/feigaochn" data-widget-id="558567974076829696">Tweets by feigaochn</a>
+    </div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Fei Gao
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="feigao.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="feigao.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="feigao.me/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'feigaome'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+
+</body>
+</html>
