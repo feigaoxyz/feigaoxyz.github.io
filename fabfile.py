@@ -1,3 +1,4 @@
+#encoding=utf-8
 from fabric.api import *
 import fabric.contrib.project as project
 import os
@@ -21,6 +22,7 @@ env.cloudfiles_container = 'my_cloudfiles_container'
 
 def clean():
     if os.path.isdir(DEPLOY_PATH):
+        local('rm -rf cache')
         local('rm -rf {deploy_path}'.format(**env))
         local('mkdir {deploy_path}'.format(**env))
 
@@ -47,11 +49,15 @@ def serve():
     server.serve_forever()
 
 def reserve():
-    build()
+    rebuild()
     serve()
 
 def preview():
     local('pelican -s publishconf.py')
+
+def repreview():
+    rebuild()
+    preview()
 
 # def cf_upload():
     # rebuild()
@@ -86,32 +92,32 @@ def github(publish_drafts=False):
 
 from datetime import datetime
 
-TEMPLATE = """
-{title}
-{hashes}
-
-:date: {year}-{month}-{day} {hour}:{minute:02d}
-:tags:
-:category:
-:slug: {slug}
-:summary:
-:status: draft
+TEMPLATE = u"""
+Title: {title}
+Date: {year}-{month:02d}-{day:02d}
+Slug: {slug}
+Tags:
+Summary:
+Status: draft
 
 """
-
 def make_entry(title):
+    title = title.decode('utf-8')
+    # print(type(title))
+    import pypinyin
+    import jieba
     today = datetime.today()
-    slug = title.lower().strip().replace(' ', '-')
-    f_create = "content/{}_{:0>2}_{:0>2}_{}.rst".format(
-        today.year, today.month, today.day, slug)
-    t = TEMPLATE.strip().format(title=title,
-                                hashes='#' * len(title),
+    # slug = title.lower().strip().replace(' ', '-')
+    slug = pypinyin.slug(title, errors='ignore').lower()
+    f_create = "content/drafts/{}-{:0>2}-{:0>2}_{}.md".format(
+        today.year, today.month, today.day, title.encode('utf-8'))
+    t = TEMPLATE.lstrip().format(title=title,
                                 year=today.year,
                                 month=today.month,
                                 day=today.day,
-                                hour=today.hour,
-                                minute=today.minute,
-                                slug=slug)
-    with open(f_create, 'w') as w:
-        w.write(t)
+                                slug=slug.encode())
+    print(type(t))
+    with open(f_create, 'a') as w:
+        w.write(t.encode('utf-8'))
     print("File created -> " + f_create)
+    print(t)
