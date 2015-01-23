@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link href="feigao.me//images/fav.jpg" rel="icon">
+    <link href="//images/fav.jpg" rel="icon">
 
 
     <meta name="author" content="Fei Gao" />
@@ -19,23 +19,23 @@
         <meta property="og:site_name" content="feigao.me" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="feigao.me"/>
-        <meta property="og:url" content="feigao.me"/>
+        <meta property="og:url" content=""/>
         <meta property="og:description" content="feigao.me"/>
 
     <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@feigaochn">
         <meta name="twitter:creator" content="@feigaochn">
-    <meta name="twitter:domain" content="feigao.me">
+    <meta name="twitter:domain" content="">
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="feigao.me/theme/css/bootstrap.paper.min.css" type="text/css"/>
-    <link href="feigao.me/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/bootstrap.paper.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="feigao.me/theme/css/pygments/solarizedlight.css" rel="stylesheet">
-    <link rel="stylesheet" href="feigao.me/theme/css/style.css" type="text/css"/>
-        <link href="feigao.me/static/custom.css" rel="stylesheet">
+    <link href="/theme/css/pygments/solarizedlight.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link href="/static/custom.css" rel="stylesheet">
 
-        <link href="feigao.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="feigao.me ATOM Feed"/>
 
 </head>
@@ -50,17 +50,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="feigao.me/" class="navbar-brand">
+            <a href="/" class="navbar-brand">
 feigao.me            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="feigao.me/pages/about-me.html">
+                         <li><a href="/pages/about-me.html">
                              about
                           </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="feigao.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -72,13 +72,13 @@ feigao.me            </a>
     <div class="row">
         <div class="col-sm-9">
     <ol class="breadcrumb">
-        <li><a href="feigao.me" title="feigao.me"><i class="fa fa-home fa-lg"></i></a></li>
-        <li><a href="feigao.me/" title="feigao.me Categories">Categories</a></li>
+        <li><a href="" title="feigao.me"><i class="fa fa-home fa-lg"></i></a></li>
+        <li><a href="/" title="feigao.me Categories">Categories</a></li>
         <li class="active">misc</li>
     </ol>
 
             <article>
-                <h2><a href="feigao.me/posts/2014-06-26-murmur.html">Murmurs at Jun 26, 2014</a></h2>
+                <h2><a href="/posts/2014-06-26-murmur.html">Murmurs at Jun 26, 2014</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
@@ -89,16 +89,16 @@ feigao.me            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="feigao.me/tag/murmur.html">murmur</a>
+	<a href="/tag/murmur.html">murmur</a>
     
 </footer><!-- /.post-info -->                    </div>
                 <div class="summary"><p>My ThinkVision 22 monitor is finally stop working. The IT sent me a HP LA2405wg. But why the resolution is still not quite good. Maybe I'm spoiled by my retina notebook already.</p>
-                    <a class="btn btn-default btn-xs" href="feigao.me/posts/2014-06-26-murmur.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/posts/2014-06-26-murmur.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="feigao.me/posts/replace-words-in-multiple-files.html">Replace Words in Multiple Files</a></h2>
+                <h2><a href="/posts/replace-words-in-multiple-files.html">Replace Words in Multiple Files</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
@@ -109,9 +109,9 @@ feigao.me            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="feigao.me/tag/sed.html">sed</a>
+	<a href="/tag/sed.html">sed</a>
         /
-	<a href="feigao.me/tag/find.html">find</a>
+	<a href="/tag/find.html">find</a>
     
 </footer><!-- /.post-info -->                    </div>
                 <div class="summary"><div class="highlight"><pre>find path -type f -iname <span class="s1">&#39;*.md&#39;</span> -exec sed -i <span class="s2">&quot;&quot;</span> <span class="s1">&#39;s/old_word/new_word/g&#39;</span> <span class="s2">&quot;{}&quot;</span> <span class="se">\;</span>
@@ -120,12 +120,12 @@ feigao.me            </a>
 
 <p>The magic <code>-i</code> option let <code>sed</code> do inplace substitution. </p>
 <p>The empty string <code>""</code> between <code>-i</code> and pattern is for backup. This is only needed in BSD systems like Mac OS.</p>
-                    <a class="btn btn-default btn-xs" href="feigao.me/posts/replace-words-in-multiple-files.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/posts/replace-words-in-multiple-files.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="feigao.me/posts/rt-mu-yu-shi-ying-yu-de-ren-ye-bu-yi-ding-neng-ting-dong-ying-wen-ge.html">[RT] 放心吧，母语是英语的人也不一定能听懂英文歌</a></h2>
+                <h2><a href="/posts/rt-mu-yu-shi-ying-yu-de-ren-ye-bu-yi-ding-neng-ting-dong-ying-wen-ge.html">[RT] 放心吧，母语是英语的人也不一定能听懂英文歌</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
@@ -136,11 +136,11 @@ feigao.me            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="feigao.me/tag/language.html">language</a>
+	<a href="/tag/language.html">language</a>
         /
-	<a href="feigao.me/tag/mondegreen.html">mondegreen</a>
+	<a href="/tag/mondegreen.html">mondegreen</a>
         /
-	<a href="feigao.me/tag/pocket.html">pocket</a>
+	<a href="/tag/pocket.html">pocket</a>
     
 </footer><!-- /.post-info -->                    </div>
                 <div class="summary"><p>What a relief :)</p>
@@ -149,12 +149,12 @@ feigao.me            </a>
 </blockquote>
 <p><a href="http://ift.tt/1nCHXtJ" title=" 放心吧 ， 母语是英语的人也不一定能听懂英文歌 ">Continue with the full story.</a> </p>
 <p>June 25, 2014 at 07:08PM via Pocket</p>
-                    <a class="btn btn-default btn-xs" href="feigao.me/posts/rt-mu-yu-shi-ying-yu-de-ren-ye-bu-yi-ding-neng-ting-dong-ying-wen-ge.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/posts/rt-mu-yu-shi-ying-yu-de-ren-ye-bu-yi-ding-neng-ting-dong-ying-wen-ge.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="feigao.me/posts/rt-parallel-programming-in-python.html">[RT] Parallel Programming in Python</a></h2>
+                <h2><a href="/posts/rt-parallel-programming-in-python.html">[RT] Parallel Programming in Python</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
@@ -165,19 +165,19 @@ feigao.me            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="feigao.me/tag/python.html">python</a>
+	<a href="/tag/python.html">python</a>
         /
-	<a href="feigao.me/tag/pocket.html">pocket</a>
+	<a href="/tag/pocket.html">pocket</a>
     
 </footer><!-- /.post-info -->                    </div>
                 <div class="summary"><blockquote>
 <p>CPUs with multiple cores have become the standard in the recent development of modern computer architectures and we can not only find them in supercomputer facilities but also in our desktop machines at home, and our laptops; even Apple's iPhone 5S got a 1.3 Ghz Dual-core processor in ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="feigao.me/posts/rt-parallel-programming-in-python.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/posts/rt-parallel-programming-in-python.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="feigao.me/posts/2014-06-21-instagram.html">2014-06-21-instagram</a></h2>
+                <h2><a href="/posts/2014-06-21-instagram.html">2014-06-21-instagram</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
@@ -188,28 +188,28 @@ feigao.me            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="feigao.me/tag/photo.html">photo</a>
+	<a href="/tag/photo.html">photo</a>
     
 </footer><!-- /.post-info -->                    </div>
                 <div class="summary"><iframe src="//instagram.com/p/oYJIYnOUOg/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-                    <a class="btn btn-default btn-xs" href="feigao.me/posts/2014-06-21-instagram.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/posts/2014-06-21-instagram.html">more ...</a>
                 </div>
             </article>
             <hr/>
 
         <ul class="pagination">
-                <li class="prev"><a href="feigao.me/category/misc2.html">&laquo;</a>
+                <li class="prev"><a href="/category/misc2.html">&laquo;</a>
                 </li>
                     <li class=""><a
-                            href="feigao.me/category/misc.html">1</a></li>
+                            href="/category/misc.html">1</a></li>
                     <li class=""><a
-                            href="feigao.me/category/misc2.html">2</a></li>
+                            href="/category/misc2.html">2</a></li>
                     <li class="active"><a
-                            href="feigao.me/category/misc3.html">3</a></li>
+                            href="/category/misc3.html">3</a></li>
                     <li class=""><a
-                            href="feigao.me/category/misc4.html">4</a></li>
+                            href="/category/misc4.html">4</a></li>
                 <li class="next"><a
-                        href="feigao.me/category/misc4.html">&raquo;</a></li>
+                        href="/category/misc4.html">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -226,115 +226,115 @@ feigao.me            </a>
 
 
 
-            <li class="list-group-item"><a href="feigao.me/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group list-inline tagcloud" id="tags">
                     <li class="list-group-item tag-2">
-                        <a href="feigao.me/tag/coursera.html">
+                        <a href="/tag/coursera.html">
                             coursera
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/farbox.html">
+                        <a href="/tag/farbox.html">
                             farbox
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/find.html">
+                        <a href="/tag/find.html">
                             find
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/ifttt.html">
+                        <a href="/tag/ifttt.html">
                             ifttt
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/language.html">
+                        <a href="/tag/language.html">
                             language
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/latex.html">
+                        <a href="/tag/latex.html">
                             latex
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="feigao.me/tag/macos.html">
+                        <a href="/tag/macos.html">
                             macos
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/markdown.html">
+                        <a href="/tag/markdown.html">
                             markdown
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="feigao.me/tag/ml.html">
+                        <a href="/tag/ml.html">
                             ml
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/mondegreen.html">
+                        <a href="/tag/mondegreen.html">
                             mondegreen
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/murmur.html">
+                        <a href="/tag/murmur.html">
                             murmur
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/note.html">
+                        <a href="/tag/note.html">
                             note
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/octave.html">
+                        <a href="/tag/octave.html">
                             octave
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/pelican.html">
+                        <a href="/tag/pelican.html">
                             pelican
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="feigao.me/tag/photo.html">
+                        <a href="/tag/photo.html">
                             photo
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="feigao.me/tag/pocket.html">
+                        <a href="/tag/pocket.html">
                             pocket
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/procrastination.html">
+                        <a href="/tag/procrastination.html">
                             procrastination
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/productive.html">
+                        <a href="/tag/productive.html">
                             productive
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="feigao.me/tag/python.html">
+                        <a href="/tag/python.html">
                             python
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/sed.html">
+                        <a href="/tag/sed.html">
                             sed
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/weibo.html">
+                        <a href="/tag/weibo.html">
                             weibo
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="feigao.me/tag/zhihu.html">
+                        <a href="/tag/zhihu.html">
                             zhihu
                         </a>
                     </li>
@@ -379,13 +379,13 @@ feigao.me            </a>
       </div>
    </div>
 </footer>
-<script src="feigao.me/theme/js/jquery.min.js"></script>
+<script src="/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="feigao.me/theme/js/bootstrap.min.js"></script>
+<script src="/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="feigao.me/theme/js/respond.min.js"></script>
+<script src="/theme/js/respond.min.js"></script>
 
     <!-- Disqus -->
     <script type="text/javascript">
