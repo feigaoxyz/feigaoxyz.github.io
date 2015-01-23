@@ -98,8 +98,6 @@ SOCIAL = (
     # (Title, URL),
     ('twitter', 'https://twitter.com/feigaochn'),
     ('weibo', 'http://weibo.com/feigaochn'),
-    ('flickr', '#'),
-    ('spotify', '#'),
 )
 DISPLAY_TAGS_ON_SIDEBAR = True
 DISPLAY_TAGS_INLINE = True
