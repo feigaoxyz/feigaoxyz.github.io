@@ -12,7 +12,7 @@ email: gaofei<at>ihpc.a-star.edu.sg (work) OR contact<at>feigao.org (personal)
 # website: feigao.org
 
 # Dark Mode (true/false/never)
-darkmode: true
+darkmode: false
 
 # Social links
 github_username:  feigaoxyz
@@ -52,7 +52,8 @@ gtag: "G-CWKMMN26Q8"
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   I am a Group Manager and Senior Scientist at [Computing & Intelligence Department](https://www.a-star.edu.sg/ihpc/ihpc-research-capabilities/computing-intelligence) of [Institute of High Performance Computing (IHPC)](https://www.a-star.edu.sg/ihpc), [Agency for Science, Technology and Research (A*STAR)](https://www.a-star.edu.sg/), Singapore. My R&D aim is to solve real-world challenges with Machine Learning and Optimisation techniques.
-  My group is actively seeking outstanding Research Scientists and Interns to join us and work together in Text Understanding and Generation for MedTech and FinTech. **Please drop me your CV today**!
+
+  My group is actively seeking outstanding Research Scientists and Interns to join us and work together in Text Understanding and Generation for MedTech and FinTech. <mark>Please drop me your CV today!!</mark>
 
 content:
   # - title: Projects # Title for the section
