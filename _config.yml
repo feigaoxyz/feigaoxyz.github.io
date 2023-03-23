@@ -95,9 +95,9 @@ content:
     layout: list # Type of content section (list/text)
     content:
       - layout: left
-        title: Doctor of Natural Science, Applied Mathematics
+        title: Zhejiang University, China
+        sub_title: Doctor of Natural Science, Applied Mathematics
         caption: 2013
-        sub_title: Zhejiang University, China
         # quote: >
         #   Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
         description: | # this will include new lines to allow paragraphs
@@ -106,9 +106,9 @@ content:
           Supervisor: [Prof. Gennian Ge](http://staff.ustc.edu.cn/~drzhangx/group-chn/default.html)
 
       - layout: left
-        title: Bachelor's Degree in Science
+        title: Zhejiang University, China
+        sub_title: Bachelor's Degree in Science
         caption: 2008
-        sub_title: Zhejiang University, China
         # quote: >
         #   Established in 1636, Harvard is the oldest higher education institution in the United States, and is widely regarded in terms of its influence, reputation, and academic pedigree as a leading university in not just the US but also the world.
         description: | # this will include new lines to allow paragraphs
